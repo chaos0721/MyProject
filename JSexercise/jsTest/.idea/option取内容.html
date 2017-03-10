@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<select name="edu" id="edu">
+    <option value="本科">本科</option>
+    <option value="大专">大专</option>
+    <option value="中专">中专</option>
+    <option value="幼儿园">幼儿园</option>
+</select>
+<script type="text/javascript">
+    //取出select标签节点
+//    var select = document.getElementById("edu") ;
+//    var selectChlid = select.childNodes ;
+//    for (i = 0; i<selectChlid.length ; i++){
+////        var edu = selectChlid[i].firstChild.nodeValue ;
+////        alert(edu) ;
+//        alert(selectChlid[i].innerText)  ////浏览器有空白 出现undefined
+//    }
+//    var ops = document.getElementsByTagName("option") ;
+//    for (i = 0;i<ops.length; i++){
+        alert(ops[i].text) ;
+//        alert(ops[i].innerHTML) ;
+//    }
+    var select = document.getElementById("edu") ;
+    var ops = select.options ;
+    alert(ops[0].innerHTML)
+//    function fun() {
+//        var i =1;
+//        alert(i)
+//    }
+//    fun() ;
+//    alert(i)
+</script>
+</body>
+</html>

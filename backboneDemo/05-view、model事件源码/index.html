@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/underscore.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/backbone-min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			var	tom = {} ;
+			_.extend(tom,Backbone.Events);
+			var	jerry = {} ;
+			_.extend(jerry,Backbone.Events);
+
+			jerry.listenTo(tom,'run',function () {
+				console.log('run');
+			});
+
+
+			var cat = function(){} ;
+
+			_.extend(cat.prototype,Backbone.Events) ;
+		</script>	
+	</body>
+</html>

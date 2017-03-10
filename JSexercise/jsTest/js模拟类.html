@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+<!--
+    /*
+        1.定义类并且创建类的实例对象
+        2.定义公有属性和私有属性
+        3.定义公有方法与私有方法
+        4.静态属性和静态方法
+        5.构造函数（无参，有参）
+        6.原型方式声明属性与方法
+        7.直接用Object或函数对象加属性与方法
+     */
+    //---------------1.定义类并创建类的实例对象-------------------------------------------
+    /*function Person() {
+
+    }
+    var p = new Person() ; */
+    //----------------2.定义公有属性和私有属性----------------------------------------------------------
+    /*
+         定义私有属性：
+                1.在函数中：用var定义
+                2.在函数外：用对象.属性名定义
+         定义公有属性：
+                1.函数中：用this.属性名定义
+                2.函数外：函数名.prototype.属性 = 默认值 ；
+     */
+    /*function Person() {
+        var name = "张三" ;
+        this.age = 100 ;  //定义公有属性
+    }
+    Person.prototype.height = 190 ;  //定义公有属性
+    var p = new Person() ;
+    p.weight = 180 ;
+    alert(p.age) ;
+    alert(p.height) ;
+    var p1 = new Person() ;
+    alert(p1.age) ;
+    alert(p1.height) ;*/
+
+    //----------------------------3.定义公有方法与私有方法--------------------------------------
+    /*
+        定义私有方法:
+                1.在函数中：采用var方法名=function(){} 定义
+                2.在函数外，采用  对象名.方法名 = function(){}
+         定义公有方法:
+                1.函数中:采用this.方法名 = function（）{}
+                2.函数外：采用函数名.prototype.方法名 = function（）{}
+     */
+    function Person() {
+        var show = function () {
+            alert("我是私有方法")
+        } ;
+        this.display = function () {
+            show() ;
+        }
+    }
+    Person.prototype.sing = function () {
+        alert("我喜欢唱歌")
+    };
+    var p = new Person() ;
+//    p.show() ; //不能调用，因为是私有的
+    p.display() ;
+
+    p.eat = function () {
+        alert("我爱吃香蕉") ;
+    };
+
+    p.eat() ;  //私有方法
+    p.sing() ;
+
+    var p1 = new Person() ;
+    p1.sing() ;
+    document.write(p1==p) ;//false,
+    p2 = p1 ;//说明通过构造函数创的对象不能这么写,对象字面量创建的可以这样写，而且全等
+    alert(p2.sing()) ;//undefine,
+//    p1.eat() ; //烫不出，eat方法是私有的，只属于p对象 */
+//--------------------------------4.静态属性和静态方法-------------------------------------
+    /*
+        注意:定义静态属性和方法都用函数名定义
+            调用的时候只能用函数名调用，不能用对象调用
+
+     */
+    /*function Person() {
+
+    }
+    Person.name = "张三" ;
+    Person.show = function () {
+        alert("我是静态方法")
+    };
+    alert(Person.name) ;
+    Person.show() ;
+    var p = new Person() ;
+    alert(p.name) ; //出错，name是静态的
+    p.show() ;  //出错，show方法是静态的，要用函数名调用*/
+    //--------------------- 5.构造函数（无参，有参）---------------------------------
+    /*
+        注意：函数名不要重复，先定义的函数永远调用不了
+     */
+    //------------------- 6.原型方式声明属性与方法-----------------------------------
+    //----------------7.如何创建对象---------------------------------------------
+    /*
+        创建对象三种方法
+            1.采用new 函数名() ;
+            2.new Object()
+            3.采用json格式定义
+     */
+    /*function Person() {}
+    var p = new Person() ;
+    var obj = new Object() ;
+    obj.name = "李四" ;
+
+    var json = {"a":"中国","b":"美国","c":"日本"} ;*/
+    //alert(typeof(json)) ;
+    //alert(json.a) ;
+    //alert(json["b"]) ;
+    //如果想拿到所有的值foreach循环
+   // for(var i in json){
+     //   alert(i+":"+json[i]); //所有的值不能用jason.i
+  //  }
+//-->
+</script>
+</body>
+</html>

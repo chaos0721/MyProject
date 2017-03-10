@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    <!--
+//    var patt = new RegExp("javascript") ;
+//    res = patt.test("this is javascript course") ;
+//    console.log(res) ;//true
+//    patt = /javascript/;
+//    res = patt.test("this is javascript") ;
+//    console.log(res) ; //true
+//    patt1 = /Javascript/i ;
+//    res1 = patt1.test("this is javascript") ;
+//    console.log(res1) ; //加入模式修正符ignoreCase 忽略大小写变为true
+//    //[]
+//    res = /[abc]/.test("blue") ;
+//    console.log(res) ; //true,中括号里面的任意字符串在测试内容出现一次就为true
+    res = /[^abc]/.test("abcd") ;
+    console.log(res) ;//true,只要出现abc以外的字符都行，abc有也可以
+    res = /[0-9]/.test("this is a test") ;
+    console.log(res) ;  //中括号中括号中括号中括号中括号中括号中括号中括号中括号中括号中括号中括号中括号中括号中括号中括号中括号中括号
+    res = /[a-z]/.test("1111233") ;
+    console.log(res) ;
+    res = /php|javascript|ios|is/.test("this is a test") ;
+    console.log(res) ;
+    //元字符
+    res = /./.test("\n") ;//false  除换行符外任意字符都为true
+    res = /\w/.test("this is a test") ;//[a-zA-Z0-9]字符为true
+    res = /\W/.test("this is a test") ;//除了[a-zA-Z0-9]任意字符为true,这个有空白所以伟true
+    res = /\s/.test("this is a test");//查找空白,有空白伟true
+    res = /\S/.test("  ");//是否有非空白字符
+    res = /\bg/.test("good") ;//true  g单词前面是否为边界
+    res = /d\b/.test("good") ;//true   d单词后面是否为边界
+    res = /\Bg/.test("good") ;//false  非边界
+    alert(res);
+
+    //量词
+    res = /o+/.test("google") ;//true  最少出现一次
+    res = /o*/.test("google") ;//true  0次一次或多次
+    res = /o?/.test("google") ;//true  至少0次或一次
+    res = /o{2}/.test("google") ;//true  至少有两个o
+    res = /o{1,3}/.test("goooogle") ;//true 至少出现1-3次==至少出现一次
+    res = /^k/.test("king") ;  //true  以k开始
+    res=/i$/.test("mai") ; //true  以i结尾
+    res = /o(?=w)/.test("hellow world") ;//true o后面紧跟w
+    res = /o(?!w)/.test("maiozi") ;//true  o后面不更w的
+    res = /\d/.test("sss") ;//[0-9]  false
+    res = /\D/.test("s2323s") ;//除了[^0-9]  true
+    console.log(res) ;  //true  最少出现一次
+
+
+    res = /is/ig.exec("this is a test") ;//length为1  别把一个单词看成一个字符串，每个单词都是一个字符
+    console.log(res);
+    console.log(res[0]) ; //is
+
+    var str = "this is a test hellow maizi hellow world" ;
+    var patt = /i/ig ;  //这个是正则表达式字面量
+    var myArr ;
+    while ((myArr=patt.exec(str))!==null){
+        console.log(myArr)
+    }//lastindex 从最后一个查找
+
+    var str = "this is a test" ;
+    res = str.match(/IS/ig) ;
+    console.log(res) ;  //找到2个  数组["is","is"]
+    res = str.search(/is/ig) ;
+    console.log(res) ;//2,返回的是找到的位置index为2
+
+    res = str.replace(/is/ig,"!") ;
+    console.log(res) ;//th! ! a test
+
+    var str = "2015-09-27" ;
+    res = str.replace(/(\d{4})-(\d{2})-(\d{2})/ig,"$2/$3/$1") ;//$1$2$3表示搜索匹配出来的顺序
+    console.log(res) ;
+
+    str = "hellow Maizi Edu" ;
+    res = str.replace(/[A-Z]/g,func);
+    function func(match) {
+        return "king_"+match.toLowerCase()
+    }
+    console.log(res) ;
+
+    res = str.split(/\s+/) ;//通过空格拆分,空格去掉，以哪个拆分哪个就去掉
+    console.log(res) ;
+    res = "MMMM"
+    alert(res.toLowerCase()); //大写变小写
+    //-->
+</script>
+</body>
+</html>

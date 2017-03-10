@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    <!--
+    function creatEx(Child,Parent) {
+        function F() { }//临时构造器
+        F.prototype =Parent.prototype ;
+        Child.prototype = new F() ;
+        Child.prototype.constructor = Child ;
+        Child.super = Child.base = Parent.prototype// 子级调用父级方法
+    }
+    //相当于减少改写constructor与Object.creat（）
+
+    //-->
+</script>
+</body>
+</html>

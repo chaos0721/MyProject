@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>北京传智播客黑马训练营</title>
+</head>
+<body onload="init()">
+<script type="text/javascript">
+//function init() {
+//    //拿到文本
+//    var title = document.title ;
+//    //将文本字符串转换为数组
+//    var arr = title.split('') ;
+//    //拿到数组的第一个元素并删除
+//    var first = arr.shift() ;
+//    //将第一个元素添加到数组的最后
+//    arr.push(first) ;
+//    //将数组在组合成一个字符串
+//    title = arr.join('') ;
+//    //将字符串再赋值回标题栏
+//    document.title = title ;
+//    //每隔一秒做一边前六部
+//    setTimeout('init()',1000) ;
+//}
+    function init() {
+        var title = document.title ;
+        var arr = title.split('') ;
+        var then = arr.shift() ;
+        arr.push(then) ;
+        title = arr.join('') ;
+        document.title = title ;
+        setTimeout("init()",1000) ; //只能执行一次，除非在函数内
+    }
+//setInterval('init()',1000) ;  //可以执行多次，只能在函数外
+</script>
+</body>
+</html>

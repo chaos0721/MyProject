@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input[type="text"]:focus {
+            background-color: red;
+            content: none;
+
+        }
+        #content:after,#content:before {
+            content: "--";
+        }
+    </style>
+</head>
+<body>
+<form action="">
+    <input id="txt" type="text" placeholder="输入身高" />
+    <select>
+        <option>北京</option>
+        <option selected="selected" value="">上海</option>
+        <option>南京</option>
+    </select>
+</form>
+<form action="">
+    <fieldset style="width: 200px;">
+        <legend>健康信息</legend>
+        身高: <input type="text">
+    </fieldset>
+</form>
+
+<div id="content">内容</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    String.prototype.reverse=function () {
+        return Array.prototype.reverse.apply(this.split('')).join('');
+    };
+    console.log('maizi'.reverse());
+
+
+    //检测方法是否存在，不存在则扩展
+    if(!Array.prototype.inArray){
+        Array.prototype.inArray=function (needle) {
+            for(var i=0,len=this.length;i<len;i++){
+                if(this[i]==needle){
+                    return true;
+                }
+            }
+            return false;
+        };
+        var arr=['a','b','c','d'];
+    }
+    console.log(arr.inArray('b'));
+</script>
+</body>
+</html>

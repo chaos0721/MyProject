@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    <!--
+//    try {
+//        notExists();
+//    }catch (e){
+//        alert(e.name+":"+e.message) ;
+//    }
+//    try{
+//        var n=0;
+//        if (n==0){
+//            throw  new Error("0不能当做除数")
+//        }else {
+//            alert(4/n) ;
+//        }
+//    }catch (e){
+//        alert(e.name+":"+e.message)
+//    }finally {
+//        alert("我总是被调用")
+//    }
+
+//    try {
+//        notExits() ;
+//    }catch (e){
+//        if (e instanceof EvalError){  //e是否在EvalError原型连上
+//            alert("Eval错误"+e.message)
+//        }else if(e instanceof RangeError){
+//            alert("Range错误"+e.message)
+//        }else if(e instanceof TypeError){
+//            alert("Type错误"+e.message)
+//        }else if(e instanceof ReferenceError){
+//            alert("Refrence错误"+e.message)
+//        }else {
+//            alert("其他错误")
+//        }
+//    }
+
+    function MyError(msg) {
+        this.name = "这是我自定义的错误名字";
+        this.message = msg||"默认的自定义的错误信息"
+    }
+    MyError.prototype = Object.create(Error.prototype) ;
+    MyError.prototype.constructor = MyError ;
+    try {
+        throw new MyError() ;
+    }catch (e){
+        alert(e.name+":"+e.message)
+    }
+    try {
+        throw  new MyError("测试自定义的错误信息") ;
+    }catch (e){
+        console.log(e.name+":"+e.message)
+    }
+
+
+    //比较对象
+    var o1 = {x:1} ;
+    var o2 ={x:1} ;
+    alert(o1==o2) ;//false 不是一个对象
+    var o3 = {x:1} ;
+    var o4 = o3 ;
+    alert(o3===o4);//true,同一个对象，做更改都是一样的
+
+    function f(o) {
+        o.x = 55;
+    }
+    f(o3) ;
+    console.log(o4.x) ;
+
+
+
+
+
+
+
+    //-->
+</script>
+</body>
+</html>

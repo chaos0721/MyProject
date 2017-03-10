@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/underscore.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/backbone-min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="page1">
+			<h1>page1</h1>
+			<a href="#">跳转到page2</a>
+		</div>
+
+		<div id="page2">
+			<h1>page2</h1>
+			<a href="#" id="gotoPage1">跳转到page1</a>
+		</div>
+
+
+		<script type="text/javascript">
+		var AppRouter = Backbone.Router.extend({
+			initialize : function(){
+				$('#page2').hide();
+				$('#page1').hide();
+			},
+			routes : {
+				'page1':'showPage1',
+				'page2':'showPage2'
+			},
+
+			showPage1:function(){
+				$('#page2').hide();
+				$('#page1').show();
+			},
+
+			showPage2:function(){
+				$('#page1').hide();
+				$('#page2').show();
+			}
+		});
+
+		var app = new AppRouter();
+
+		Backbone.history.start();//浏览器后退前进,nofresh
+
+		$('#gotoPage1').click(function(e){
+			e.preventDefault();
+			app.navigate('page1',{trigger:true});
+		});//无刷新
+		</script>
+	</body>
+</html>

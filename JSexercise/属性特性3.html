@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    <!--
+//    var obj = {} ;
+//    obj.x = 1 ;
+    //相当于
+    /*Object.defineProperty(obj,"x",{
+        value : 1,
+        writable : true ,
+        enumerable :true ,
+        configurable :true
+    }) ;*/
+    alert(parseInt("12.3")) ;  //取整数
+
+    var person =  {} ;
+    Object.defineProperties(person,{
+        username :{
+            value : "king" ,
+            writable : true ,
+            enumerable : true,
+            configurable :true
+        },
+        age : {
+            value : 12 ,
+            writable : true
+        }
+    }) ;
+    console.log(person.username) ;
+    console.log(Object.getOwnPropertyDescriptor(person,"username")) ;
+
+    var obj = {x:1} ;
+    var obj1 = Object.create(obj) ;
+    console.log(obj.isPrototypeOf(obj1)) ;  //true
+    console.log(Object.prototype.isPrototypeOf(obj1)) ;  //true,obj1的原型是obj
+    //obj的原型是Object.prototype ,原型的原型
+    //_proto_  查看对象的原型 IE不支持
+    function Foo() {}
+    var p = Foo.prototype ;
+    var foo = new Foo() ;
+    console.log(p.isPrototypeOf(foo)) ;
+
+    //对象特性之class(类)
+    var obj3 = {} ;
+    console.log(obj3.toString()) ;
+    var arr = [] ;
+    console.log(arr.toString()) ;  //返回空数组
+    var arr1 = new Array() ;
+    console.log(arr1.toString()) ;  //空数组,内置对象重写了toString()方法
+    // ,因为所有对象都是从Object.prototype继承了toString这个属性
+    console.log(Object.prototype.toString.call(arr1)) ;
+    var d = new Date();
+    console.log(Object.prototype.toString.call(d)) ;
+    console.log(d.toString());  //返回GMT中国标准时间
+    console.log(Number(d)) ;   //返回毫秒数
+    function classof(obj) {
+        if(obj == null){
+            return "NUll"
+        }else if (
+                obj == undefined
+        ){
+            return "Undefined"
+        }
+        return Object.prototype.toString.call(obj).slice(8,-1)
+    }
+    var x = null ;
+    x = 123 ;
+    x = [] ;
+    x = window ; //返回global全局对象
+    x = "king" ;//string
+    x = true ; //Boolean
+    x = function (){
+    } ; //function
+
+    console.log(classof(x)) ;
+
+    //-->
+</script>
+</body>
+</html>

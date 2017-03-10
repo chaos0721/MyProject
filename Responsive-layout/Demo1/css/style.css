@@ -1,0 +1,8 @@
+body {
+	font-family: "microsoft yahei",sans-serif;
+}
+.navbar-default {
+	background-color: #dcffff;
+    border: none;
+    -webkit-box-shadow: 0px 2px 8px grey;
+}

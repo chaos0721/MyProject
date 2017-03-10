@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript">
+    <!--
+        function saveStorage(id) {
+            var data = document.getElementById(id).value ;
+            var time = new Date().getTime() ;
+            localStorage.setItem(time,data) ;
+            alert("数据已经保存!") ;
+            loadStorage("msg") ;
+        }
+        function loadStorage(id) {
+            var reselt = "<table border='1'>" ;
+            for (var i= 0;i<localStorage.length;i++){
+                var key = localStorage.key(i);
+                var date = new Date();
+                date.setTime(key) ;
+                var datestr = date.toGMTString();  //toString()
+                var v = localStorage.getItem(key) ;
+                reselt+='<tr><td>'+'这是第'+i+'条数据</td><td>'+v+'</td>'+"<td>"+datestr+'</td>'+'</tr>'
+            }
+            reselt+='</table>';
+            var target = document.getElementById(id) ;
+            target.innerHTML = reselt ;
+        }
+        function clearStorage() {
+            localStorage.clear() ;
+            alert("数据已清除") ;
+            loadStorage("msg") ;  //动态删除
+        }
+    //-->
+</script>
+<body>
+<h1>简单的网页留言板</h1>
+<textarea id="demo" cols="60" rows="10"></textarea><br>
+<input type="button" value="保存" onclick="saveStorage('demo')" />
+<input type="button" value="清除" onclick="clearStorage()" />
+<input type="button" value="读取" onclick="loadStorage('msg')" />
+<hr />
+<p id="msg"></p>
+</body>
+</html>

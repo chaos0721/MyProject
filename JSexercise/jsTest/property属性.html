@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    //自身属性高于原型属性
+    function Product(name) {
+        this.name=name;
+    }
+    Product.prototype.name='音响';
+    var p1=new Product('相机');
+    console.log(p1.name);
+    delete p1.name;
+    console.log(p1.name);
+    p1.name='手机';
+    console.log(p1.name);
+    var obj={
+        username:'king',
+        age:12,
+        addr:'北京',
+        email:'382771@qq.com'
+    };
+    for(var i in obj){
+        console.log(obj[i]);
+    }
+    
+    function Product1(name,color) {
+        this.name=name;
+        this.color=color;
+        this.someMethod=function () {
+            return 'this is a test';
+        }
+    }
+    Product1.prototype.price=1234;
+    Product1.prototype.memory=32;
+    var p2=new Product1('苹果手机','白色');
+    for(var i in p2){
+        console.log(i);
+    }
+
+    for(var p in p2){
+        if(p2.hasOwnProperty(p)){
+            console.log(p);
+        }
+    }
+
+    var monkey={
+        hair:true,
+        feeds:'香蕉',
+        breathes:'air'
+    };
+    function Human(name) {
+        this.name=name;
+    }
+    Human.prototype=monkey;
+    var person1=new Human('king');
+    console.log(person1.name);
+    console.log(monkey.isPrototypeOf(person1));
+
+    var person2=new Human('queen');
+    person2.feeds='火锅';
+    person2.learn='JS课程';
+    console.log(person2.feeds);
+    person2.constructor='this is a test';
+    console.log(person2.__proto__);
+    console.log(person2.constructor);
+    monkey.test='hellow maizi';
+    console.log(person2.test);
+    console.log(typeof person2.__proto__);
+    console.log(typeof person2.prototype);
+
+
+</script>
+</body>
+</html>

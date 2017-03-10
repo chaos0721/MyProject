@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/underscore.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/backbone-min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+
+		var Task = Backbone.Model.extend({
+			urlRoot : 'http://rapit.sinaapp.com/api/task' ,
+			//idAttribute : 'guid', //如果不是id
+			defaults : {
+				'indentifly' : 'p_chou' ,
+			}；
+		});
+
+		var task = new Task({
+			'indentifly' : 'p_chou' ,
+			'title' : 'course1' ,
+			'description' : 'course1 des'
+		})
+
+		task.save() ;//发送服务器数据 调用了POST方法
+
+		task.changed; //对象属性是否改变。返回改变的元素对象
+
+		task.save(task.changed,{patch:true}) //PATCH方法传数据给服务器
+
+		task.on('destroy',function(){
+			alert(1)
+		})
+
+		task.destroy
+
+		task.fetch() ; //调用接口从服务器拿回数据
+
+		</script>
+	</body>
+</html>

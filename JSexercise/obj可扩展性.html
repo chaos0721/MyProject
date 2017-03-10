@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+<!--
+//var obj = {} ;
+////检测对象是否可扩展，内置对象都可扩展
+//console.log(Object.isExtensible(obj)) ;
+//var d = new Date() ;
+//console.log(Object.isExtensible(d)) ;
+//// 通过prventExtensible()将对象变成不可扩展，不是可逆的
+//obj.x = 1 ;
+//obj1 = Object.preventExtensions(obj) ;
+//console.log(obj === obj1) ;
+//console.log(Object.isExtensible(obj1)) ;  //锁定对象了
+//obj1.y = 2 ;
+//console.log(obj1.y) ; //undefined
+//Object.defineProperty(obj1,"z",{
+//    value : 1
+//});  //typeEorro
+
+//var obj = {
+//    x:1,
+//    y:2,
+//    username:"king"
+//} ;
+//obj.age = 12 ;
+//var o = Object.seal(obj) ; //seal()方法把对象变成不可扩展(不可添加新属性)，
+//// 不可配置，但可写,封闭了，不能解封
+//console.log(obj === o) ;//完全一样
+//console.log(Object.isExtensible(o)) ;
+//obj.y = 15 ;
+//console.log(obj.y) ;
+//console.log(Object.getOwnPropertyDescriptor(o,"age"));
+//Object.defineProperty(obj,"username",{
+//    get : function () {
+//        return "this is a test"
+//    }
+//}) ; //typeError
+//console.log(obj.username) ; //typoError  不能重新定义访问器属性
+//o.z = 77 ;
+//console.log(o.z) ; //undefined
+//console.log(Object.isSealed(o)) ;
+//console.log(Object.getOwnPropertyDescriptor(obj,"username"));
+////freeze 冻结，比seal更加严格，不可扩展，不可配置，只读
+//var obj1 = {
+//    prop : function(){} ,
+//    foo : "king"
+//} ;
+//obj1.test = "this is a test" ;
+//console.log(obj1.prop) ;
+//var p = Object.freeze(obj1) ;
+//console.log(p === obj1) ;
+//console.log(Object.isFrozen(p)) ;
+//console.log(Object.getOwnPropertyDescriptor(p,"prop")) ;  //，可枚举,不可写，不可配置
+// 只有enumerable可从true变成false,特例
+
+//freeze 是浅冻结,子对象照样可以配置，添加
+var obj2 = {
+    internal :{}   //指的是internal这个属性的属性值为一个空对象，不等于internal = {} ;
+} ;
+Object.freeze(obj2) ;
+obj2.internal.x = 1 ;
+console.log(obj2.internal.x) ;
+console.log(Object.getOwnPropertyDescriptor(obj2.internal,"x")) ; //1 true*3
+//完全冻结 只要是对象就冻结
+function deepFree(os) {
+    var prop,propKey ;
+    Object.freeze(os);
+    for(prop in os){
+        propKey = os[prop] ;//拿去属性值对比,三个等号比较类型
+        if(!os.hasOwnProperty(prop)||!(typeof propKey === "object")||Object.isFrozen(propKey)){
+            continue;
+        }
+        deepFree(propKey) ;
+    }
+}
+var obj2 = {
+    internal : {}
+};
+deepFree(obj2) ;
+obj2.internal.x = 3 ;
+console.log(obj2.internal.x) ;//undefined
+var n = {
+    x:1
+};
+n.x===1?alert("真"):alert("加");//这个x又和属性值一个类型
+alert(obj2.internal==={}) ; //internal不是一个数组
+//-->
+</script>
+</body>
+</html>

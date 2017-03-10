@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    <!--
+    //将公用属性放到原型上去，提高效率
+    function Shape(){}
+    Shape.prototype.name = "shape" ;
+    Shape.prototype.toString = function () {
+        return this.name ;
+    };
+    
+    function TwoDShape() {}
+    TwoDShape.prototype=new Shape() ;
+    TwoDShape.prototype.constructor = TwoDShape ;
+    TwoDShape.prototype.name = "2D Shape" ;
+    
+    function Triangle(side,height) {
+           this.side = side ;
+           this.height = height ;
+    }
+    Triangle.prototype = new TwoDShape() ;
+    Triangle.prototype.constructor = Triangle ;
+    Triangle.prototype.name = "triangle" ;
+    Triangle.prototype.getArea = function () {
+        return this.side*this.height/2
+    };
+    var myTriangle = new Triangle() ;
+    console.log(myTriangle.getArea) ;
+    console.log(myTriangle.toString()) ;
+    console.log(myTriangle.hasOwnProperty("side")) ;
+    console.log(myTriangle.hasOwnProperty("name")) ;
+    //-->
+</script>
+</body>
+</html>

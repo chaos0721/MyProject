@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/underscore.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/backbone-min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var ToDoItem = Backbone.Model.extend({})
+			
+			var toDoItem1 = new ToDoItem({
+				'title' : 'task' ,
+				'description' : 'description1'
+			});
+			var toDoItem2 = new ToDoItem() ;
+
+			//对象之间监听,listenTo\listenToOnce
+			toDoItem2.listenTo(toDoItem1,'change:title',function(){
+				console.log(this) //'this' is toDoItem2 
+			})
+
+			//silent阻止事件发生
+			//toDoItem.set('title','change title',{silent:true}) ;
+			
+			//destroy\sync\invalid\
+			toDoItem1.on('change:title',function () {
+				//console.log("change trigger!")
+				//console.log(this.changed)
+				if(this.hasChanged('title')){
+					console.log('title hasChanged!')
+				}else{
+					console.log('NoChange!')
+				}
+			}) ;
+
+			//直接调用chenge事件
+			//toDoItem.trigger('change') ;
+
+			// toDoItem1.on('abc',function () {
+			// 	console.log('abc trigger')
+			// })
+			// toDoItem1.trigger('abc')
+
+			//取消监听,没有参数取消所有事件
+			//toDoItem1.off('change:title')
+
+			//先on再取消掉.once方法
+			//toDoItem1.once('change:title',function () {
+				//console.log("change trigger!")
+				//console.log(this.changed)
+			// 	if(this.hasChanged('title')){
+			// 		console.log('title hasChanged!')
+			// 	}else{
+			// 		console.log('NoChange!')
+			// 	}
+			// }) ;
+		</script>	
+	</body>
+</html>

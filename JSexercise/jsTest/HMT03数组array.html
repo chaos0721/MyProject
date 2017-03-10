@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    //1.采用new Array()的方式;2.采用[]来定义数组，推荐
+    var arr = new Array() ;  //定义一个初始长度为0的数组
+    var arr1 = new Array(4) ; //定义一个初始长度为4的数组
+    arr1[0] = 1 ;
+    arr1[1] = 10 ;
+    alert(arr1[0]) ;
+    alert(arr1[2]) ;
+    var arr2 = new Array(1,2,3,4,5) ;//定一个数组arr2，初始化数据1.2.3.4.5
+    //重点:如果new Array(x)如果x只有一个数字就是定义长度，多个就是初始化数据
+var arr4 = [] ;//定义数组，里面是空的
+    var arr4 = [3];  //这是定义数组arr4，初始化数据
+    alert(arr4.length);
+    arr4.length=100;//长度100
+    arr4[100] = 100; //长度101，前面100表示下标
+    alert(arr4.length);
+    alert(arr4[100]);
+    //数组长度变化以上两中方法
+
+    arr5 = ['中国','美国','日本'];
+    arr5['中国'] = ['北京','天津','上海'];
+    alert(arr5['中国'][2]);
+</script>
+</body>
+</html>

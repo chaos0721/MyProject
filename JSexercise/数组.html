@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    <!--
+    var arr = [1,,3] ;//[1,undefined,3],对象没有索引,属性名相当于索引
+    console.log(arr.length) ;
+    var arr1 = [,,];//长度为2，都是未定义的,可以多一个逗号，系统会自动忽略最后一个逗号,同对象
+
+
+    var arr = [] ;
+    arr[0] = 11 ;
+    arr[1] = 1 ;
+    arr[-123] = "c" ; //有值  但是数组长度不变
+    console.log(arr);
+    arr[2.3] = "d" ;
+    console.log(arr);//有值  但是数组长度不变
+
+    var arr = new Array(10) ;
+    console.log(arr.length) ;//10 一个值表示长度
+    arr = [] ;
+    console.log(arr.length) ;//0
+
+    var arr = [1,2,3,4,5,6,7,8] ;
+    arr.length = 3 ;
+    console.log(arr) ;//1,2,3 超过自动按顺序删除
+    arr.length = 0 ;//返回空数组
+    arr.length = 5;//返回还是空数组,不可逆
+    console.log(arr) ;
+    var arr = [1,2,3] ;
+    //length是数组的属性
+    Object.defineProperty(arr,"length",{
+        writable :false
+    });
+    arr.length = 10 ;
+    console.log(arr.length) ;
+
+    var arr = [] ;
+    arr[0] = "a" ;
+    arr[1] ="b" ;
+    arr.push("c","b","ww",12) ;//在数组的末尾添加元素(数量不计)
+    console.log(arr) ; //["a","b","c","b","ww",12]
+    var res = arr.pop() ;//删除（弹出末尾的一个元素）
+    console.log(arr) ;//["b","c","b","ww"]
+    arr.unshift(1,2,3); //在数组的首部添加元素(数量不计)
+    arr.shift(); //删除（弹出首部的一个元素）
+    //delete arr[i] ; //删除数组元素，但是长度不变
+
+    //数组遍历,索引是连续的用for循环，不是连续的用for in（对象也用这种方法）
+    var arr = ["a","b","c","d","e"];
+    for (var i = 0;i<arr.length;i++){
+        console.log(arr[i]) ;
+    }
+    var arr1 = [] ;
+    arr1[12] ="x" ;
+    arr1[23] = "y";
+    arr1[55] = 45 ;
+    for (var i in arr1){
+        console.log(arr1[i])
+    }
+    for (var i in arr1){
+        if (arr1.hasOwnProperty(i)){
+            console.log(arr1[i])
+        }
+    }
+
+    var arr2 = [1,21,3,4,5,6];
+    arr2.forEach(function (x) {
+        console.log(x)
+    });
+
+    function Test(element,index,array) {
+        console.log("要处理的数组为: "+array);
+        console.log("索引: "+index+"--值为："+element) ;
+    }
+    arr2.forEach(Test);
+    //join()数组组成字符串,默认逗号连接
+    //reverse 反转数组
+    //sort()排序默认按字符在unicode排序
+    //concat()连接数组  多维数组
+    //slice() 返回数组某一部分 第一个起始,第二个参数长度，
+    // 如果第二个参数是负值，取的就是位置了,取不到第二个参数的位置的数值,闭区间
+    var users = [
+        {name:"king",age:12},
+        {name:"queen",age:32},
+        {name:"chaos",age:54},
+        {name:"rose",age:12}
+    ] ;
+    users.sort(function (a,b) {
+        if (a.name>b.name)return 1;
+        if(a.name<b.name)return -1;
+        return 0
+    });
+    for (var i in users){
+        console.log(users[i]["name"])
+    }
+
+    var arr = ["a",'b','c','d','e','f','g','h'] ;
+    res = arr.splice(0,1) ;//删除了“a”
+    res = arr.splice(0,2,"!","?","%") ;//删除并顶替赋值,从0开始截取两个长度,这两个地方在放上3个元素
+    console.log(res) ;// "a"
+    console.log(arr) ;//少了a
+
+
+    var arr = [1,2,3,4,5,6] ;
+    res = arr.map(function (x) {
+       return x*x
+    });
+    console.log(res) ;
+    var arr = ["a!","b!","c!","d!","e!"];
+    var res = arr.map(Trans) ;
+    function Trans(x) {
+        return x.replace(/!/g,"?").toUpperCase();
+    }
+    alert(res) ;
+
+    var arr = [1,846,879,12,2,5,878] ;
+    res = arr.filter(function (x) {
+       return x<=10 ;
+    });
+    console.log(res) ;
+
+    alert(Boolean(undefined)) ;//false
+
+    //-->
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    <!--
+    function Person(name,age) {
+        this.name = name ;
+        this.age = age ;
+    }
+    function NEW(f) { //f 是个函数
+//        var o ={"_proto_":f.prototype} ;这样写就是指向同一个原型p, 参考图片2
+        return function () {
+            var o ={"_proto_":f.prototype} ;
+            f.apply(o,arguments) ;
+            return o ;
+        }
+    }  
+    //-->
+</script>
+</body>
+</html>

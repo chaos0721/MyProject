@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="init()">
+<p>你好</p>
+<script type="text/javascript">
+<!--
+    /*
+        window对象的属性：
+                1.innerHeight: 返回文档显示区的高度
+                2.innerWidth: 返回文档显示区的宽度   IE不支持
+                  通用写法：widow.document.body.clientWidth ;
+                3.outerHeight:  包括了工具栏菜单栏的高度
+                4.outerWidth:  包括滚动条的宽度
+     */
+    function init() {
+        var x = window.document.body ;
+        alert(x.firstChild.nextSibling.nodeName) ; //浏览器自动加了空白
+        var y = window.document.body.clientHeight ;
+        alert(y)
+    }
+//-->
+</script>
+</body>
+</html>

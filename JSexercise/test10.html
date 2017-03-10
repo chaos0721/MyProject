@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <input type="button" value="test" id="btn1" />
+    <script type="text/javascript">
+        <!--
+            //检测当前事件处在事件流的哪个阶段,捕获阶段调用的事件处理程序，
+            // 如果事件处理程序处于目标对象上，值为2
+            // 如果事件在捕获阶段调用的事件处理程序，值为1----------S
+            var btn1 = document.getElementById("btn1") ;
+            btn1.onclick = function (e) {
+                alert(e.eventPhase)
+            };
+            document.body.addEventListener("click",function (e) {
+                alert(e.eventPhase) ;
+            },false);
+            //---------------------------------------------------------E
+        //-->
+    </script>
+</head>
+<body>
+
+</body>
+</html>

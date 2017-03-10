@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/underscore.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/backbone-min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var ToDoItem = Backbone.Model.extend()
+			
+			var toDoItem = new ToDoItem({
+				'title' : 'task' ,
+				'description' : 'description1'
+			});
+			
+			var ToDoItemView = Backbone.View.extend({
+				tagName : 'p',
+				className:'item_class',
+				id :'header',
+				attributes : {
+					style : "color : red"
+				},
+				render : function(){
+					this.$el.html('<span>'+this.model.get('title')+'</span>') ;
+					return this ;
+				}
+			})
+			//两种el逻辑不同，上面可以共享
+			var toDoItemView = new ToDoItemView({
+				model : toDoItem 
+			}) ;
+			toDoItemView.render().$el.appendTo($('body')) ;			
+		</script>
+	</body>
+</html>

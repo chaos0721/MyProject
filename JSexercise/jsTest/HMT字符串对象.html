@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="p">变大</p>
+<input type="button" value="变变变" onclick="fun()">
+<input type="button" value="变变变" onclick="fun1()">
+<!--<script type="text/javascript">-->
+    <!--function fun() {-->
+        <!--var text = document.getElementById('p');-->
+        <!--var  content = p.innerHTML ;  //innerHTML必须有开始和结束标签的标签对象才能使用-->
+        <!--p.innerHTML = content.big() ;-->
+    <!--}-->
+    <!--var arr = ['red','green','yellow','blue','white','purple'] ;-->
+    <!--function fun1() {-->
+        <!--var p = document.getElementById('p');-->
+        <!--//随机取得一个整数作为数组下标-->
+        <!--var index = Math.floor(Math.random()*arr.length) ;-->
+<!--//        var txt = p.innerHTML ;  有问题-->
+        <!--var txt = p.innerText ;-->
+        <!--p.innerHTML = txt.fontcolor(arr[index]) ;-->
+<!--//        alert(p.innerHTML) ;-->
+        <!--setTimeout("fun1()",500) ;-->
+    <!--}-->
+<!--</script>-->
+<script type="text/javascript">
+    function fun() {
+        var p = document.getElementById('p') ;
+        var txt = p.innerHTML ;
+        p.innerHTML = txt.big() ;
+    }
+    var arr = ['red','green','white','black','blue'] ;
+    function fun1() {
+        var p = document.getElementById('p') ;
+        var txt = p.innerText;
+        var index = Math.floor(Math.random()*arr.length) ;
+        p.innerHTML = txt.fontcolor(arr[index]) ;
+        setTimeout('fun1()',500) ;
+    }
+
+</script>
+</body>
+</html>

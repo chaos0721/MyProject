@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    <!--
+    function Test() {}
+    console.log(Test.constructor) ;//返回创建该函数对象构造函数
+    function Test1(x,y,z) {
+        return x+y+z ;
+    }
+    console.log(Test1.length) ;
+    function A() {
+        return A.caller ;//谁调用了A函数
+    }
+    function B() {
+        return A()
+    }
+    console.log(B()) ;
+    console.log(A()) ;//null
+    //arguments是个数组
+    //callee属性，引用的是当前被调用的函数的对象
+    function f() {
+        return arguments.callee ;
+    }
+    console.log(f()) ;//返回的f（）函数
+    //匿名函数的递归调用
+    (
+        function (count) {
+            if (count<=3){
+                alert(count) ;
+                arguments.callee(++count)
+            }
+        }
+    )(0);
+
+
+    //toString()返回源代码,valueOf返回对象本身
+    //call.apply，call(参数1，参数2)，
+    // 参数1函数或对象都行，参数2传入函数的值
+    var obj = {
+        name:"king",
+        say : function (somebody) {
+            return "hellow "+somebody+"this is "+this.name ;
+        }
+    } ;
+    console.log(obj.say("queen"));
+    var obj1 = {
+        name : "maizi"
+    };
+    console.log(obj.say.call(obj1,"js")) ;
+    console.log(obj.say.apply({},[3,4,5])) ;
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    //-->
+</script>
+</body>
+</html>

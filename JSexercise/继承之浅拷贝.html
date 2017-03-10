@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    <!--
+    var person = {
+        name :"cj" ,
+        age :22 ,
+        addr : {
+            home :"home address" ,
+            office : "office address"
+        }
+    };
+    var programmer = {
+        language : "js"
+    };
+    function extend(p,c) {
+        var c = c||{} ;
+        for (var i in p){
+            c[i] = p[i] ;
+        }
+        return c
+    }
+    console.log(extend(person,programmer)) ;
+    console.log(person.name) ;
+    programmer.name = "chao" ;
+    console.log(person.name); //"cj
+    programmer.addr.home = "beijing" ;
+    console.log(person.addr.home );
+    // 包括对象里面对象的属性都复制了
+    //-->
+</script>
+</body>
+</html>

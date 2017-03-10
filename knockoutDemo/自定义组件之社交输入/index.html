@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>自定义组件</title>
+		<script src="js/knockout.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+	<div id="content1">
+
+		<div data-bind="component:'MessageAndList'"></div>
+		<div data-bind="component:{name:'MessageAndList',params:'jerry'}"></div>
+
+	</div>
+		<script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				ko.components.register(
+					'MessageAndList',{
+						viewModel:function(params){
+							var self = this;
+							self.Account = ko.observable(params!=null?params:"tom");
+							self.MessageText = ko.observable('');
+							self.Send = function(){
+								self.MessageList.push({message:self.MessageText(),account:self.Account()});
+								self.MessageText('');
+							};
+							self.MessageList = ko.observableArray([]);
+						},
+						template:'<input type="text" data-bind="value:MessageText" /><button type="button" data-bind="click:Send" id="Send">发送</button><ul data-bind="foreach:MessageList"><li><p data-bind="html:message">文本内容1</p><strong data-bind="html:account"></strong></li></ul>'
+					}
+
+				);
+				ko.applyBindings();
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3属性选择器</title>
+	<style>
+		[id*=box1]{
+			background-color: green;
+		}
+		[id*=box2]{
+			background-color: yellow;
+		}
+		/*开头字符选择*/
+		[id^=b]{
+			font-size: 30px;
+		}
+		/*尾部字符选择*/
+		[id$=a]{
+			font-weight: 600;
+		}
+		/*尾部是数字，连接符是横杆*/
+		[id$=\-1]{
+			font-size: 60px;
+		}
+		/*[id$=_2]{
+
+		}*/
+	</style>
+</head>
+<body>
+	<h1>css3属性选择器</h1>
+	<div id="box1a">section</div>
+	<div id="box1-1">section</div>
+	<div id="box1-1-1">section</div>
+	<div id="box1-1-2">section</div>
+	<div id="box1-2">section</div>
+	<div id="box1-2-1">section</div>
+	<div id="box2">section</div>
+	<div id="box2-1">section</div>
+	<div id="box2_2">section</div>
+</body>
+</html>

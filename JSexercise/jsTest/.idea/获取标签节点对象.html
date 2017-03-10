@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p name="p">你好</p>
+<p name="p"></p>
+<input type="text" name="txt" id=""> <br>
+<input type="text" name="txt" id=""><br>
+<input type="text" name="txt" id=""><br>
+<script type="text/javascript">
+    <!--
+        //采用document.getElementById()
+        //第二种document.getElementsByName():返回的是数组,只能用于表单对象
+        var p = document.getElementsByName("p")  //拿不到
+        alert(p[0].innerHTML) ;
+        var txt = document.getElementsByName("txt") ;
+        alert(txt.length) ;
+        txt[1].placeholder= "输入姓名"+":"
+        //第三种通过标签的名字去拿,返回数组
+        var p1 = document.getElementsByTagName('p') ;
+        alert(p1[0].innerHTML) ;
+        alert(p1[0].firstChild.nodeValue) ;
+        p1[1].innerHTML = "再见"
+    //-->
+</script>
+</body>
+</html>

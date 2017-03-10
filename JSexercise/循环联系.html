@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            list-style: none;
+            background-color: blue;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script type="text/javascript">
+        <!--
+        function fun(){
+            //-------------------------------------------
+//            var li = document.getElementsByTagName("li") ;
+//            for (var i=0;i<li.length;i++){
+//                li[i].onclick = (function (x) {
+//                    return function () {
+//                        alert(x)  ;
+//                    }
+//                })(i)
+//            }
+            //--------------------------------------------
+            var li = document.getElementsByTagName("li") ;
+            for (var i=0;i<li.length;i++){
+                li[i].on = i ;
+                li[i].onclick = function () {
+                    alert(this.on) ;
+                }
+            }
+
+
+            for (var i in li){
+                console.log(i)
+            }
+            var ul = document.getElementsByTagName("ul")
+            alert(typeof ul)
+            for (var i in li){
+                console.log(i)
+            }
+            //------------------------------------------------
+            function factorial(n) {
+                if (n <= 0)
+                    return 1;
+                else
+                    return n * arguments.callee(n - 1)
+            }
+            alert(factorial(4));
+
+        }
+        //-->
+    </script>
+</head>
+<body onload="fun()">
+<ul>
+    <li>0</li>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript">
+    <!--
+    //实例：拿到成龙的年龄
+    //拿到更节点
+    var root = document.documentElement ;
+    var body = root.lastChild ;
+    var table = body.firstChild;//??????????????????????????
+    var tdy= table.firstChild;
+    var tr = tdy.firstChild ;
+    var tr1 = tr.nextSibling ;
+    var td = tr1.lastChild ;
+    var old = td.firstChild ;
+    alert(old.nodeValue) ;
+    //-->
+
+</script>
+<body>
+<table>
+    <tr>
+        <td>刘德华</td>
+        <td>男</td>
+        <td>50</td>
+    </tr>
+    <tr>
+        <td>成龙</td>
+        <td>男</td>
+        <td>50</td>
+    </tr>
+    <tr>
+        <td>小龙女</td>
+        <td>女</td>
+        <td>18</td>
+    </tr>
+</table>
+
+</body>
+</html>

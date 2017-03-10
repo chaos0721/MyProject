@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*p:before {*/
+            /*content: open-quote;*/
+        /*}*/
+        /*p:after {*/
+            /*content: close-quote;*/
+        /*}*/
+        p:before {
+            /*counter-increment: section;*/
+            content: counter(hajsq)'.';
+            font-style: 24px;
+        }
+        p {
+            counter-increment: hajsq;
+        }
+    </style>
+    <script type="text/javascript">
+        var obj = {"a":"中国","b":"美国","c":"日本"} ;
+        alert(obj.a) ;
+        for (var i in obj){
+            document.write(obj[i]);  //遍历属性值只能用中括号的,obj.i不能用,不管属性名 有没有引号
+        }
+    </script>
+</head>
+<body>
+<div>
+    <h1></h1>
+    <p>sss</p>
+    <p>sss</p>
+    <p>sss</p>
+</div>
+</body>
+</html>

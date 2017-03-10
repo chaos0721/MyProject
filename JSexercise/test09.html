@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="test" id="btn1" />
+<br />
+<a href="http://www.baidu.com">百度</a>
+<script type="text/javascript">
+    <!--
+        //---------------获取事件----------------------------S
+        var btn1 = document.getElementById("btn1") ;
+        var handler = function (e) {
+            switch(e.type){
+                case "click" :
+                    alert("click event");
+                    break;
+                case "mouseover":
+                    event.target.style.backgroundColor = "red" ;
+                    break;
+                case "mouseout":
+                    event.target.style.backgroundColor = "transparent" ;
+                    break
+            }
+        };
+        btn1.onclick = handler ;
+        btn1.onmouseover = handler ;
+        btn1.onmouseout = handler;
+        //-------------------------------------------------------E
+
+        //---- 取消默认行为,条件cancelable(事件可拥有可取消的默认动作)为true---------------S
+        var bd = document.getElementsByTagName("a") ;
+        bd[0].onclick = function (e) {
+            alert(e.cancelable) ;
+            e.preventDefault()
+        };
+        //-------------------------------------------------------E
+
+        
+        
+    //-->
+</script>
+</body>
+</html>

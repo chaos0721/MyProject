@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript">
+    <!--
+        //实例：点击按钮让图片消失
+        function init() {
+            var btn = document.getElementById("btn") ;
+            var btn1 = document.getElementById("btn1") ;
+            //注册事件
+            btn.onclick = function () {
+                var img = document.getElementById("img") ;
+                img.style.display = "none" ;
+                this.disabled = "true"
+            }
+            btn1.onclick = function () {
+                var img = document.getElementById("img") ;
+                img.style.display = "block" ;
+                //删除属性
+                btn.removeAttribute("disabled")
+            }
+        }
+        function fun2(obj) {
+            obj.value = "新浪" ;
+        }
+        function fun3() {
+            var p = document.getElementById("p") ;
+            p.innerHTML = "<img src='images/banner02.png' />";
+        }
+        function fun4() {
+            var btn2 = document.getElementById("btn2") ;
+            btn2.removeAttribute("onclick") ;
+        }
+    //-->
+</script>
+<body onload="init()">
+<img src="images/banner01.png" alt="" id="img" />
+<input type="button" value="图片不见了" id="btn" />
+<input type="button" value="图片出现" id="btn1" />
+<input type="button" value="搜狐" id="" onclick="fun2(this)" />
+<input type="button" value="添加一幅图片" id="btn2" onclick="fun3()" />
+<input type="button" value="去掉图片添加 事件" id="btn3" onclick="fun4()" />
+<p id="p"></p>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>选择你的爱好:</h1>
+全选/全不选<input type="checkbox" name="hobby" onclick="checkAll(this.checked)" /><br>
+<input type="checkbox" name="hobby" id="football" />足球
+<input type="checkbox" name="hobby" id="basketball" />篮球
+<input type="checkbox" name="hobby" id="swim" />游泳
+<input type="checkbox" name="hobby" id="singing" />唱歌
+<br>
+<input type="button" value="全选" onclick="checkAll(true)" />
+<input type="button" value="全不选" onclick="checkAll(false)">
+<input type="button" value="反选" onclick="reverseCheck()">
+
+<script type="text/javascript">
+<!--
+     function checkAll(flag) {
+         //拿到所有的多选框
+         var hobbys = document.getElementsByName("hobby") ;
+         //循环赋值
+         for (var i = 0;i<hobbys.length ;i++){
+             hobbys[i].checked= flag ;
+         }
+     }
+     function reverseCheck() {
+         var hobbys = document.getElementsByName("hobby") ;
+         for(var i = 0;i<hobbys.length ; i++){
+             hobbys[i].checked = !hobbys[i].checked ;
+         }
+
+     }
+
+
+//-->
+</script>
+</html>

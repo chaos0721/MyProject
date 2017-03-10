@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    <!--
+    //对string对象原型进行扩展得到reverse方法
+    String.prototype.reverse = function () {
+        return Array.prototype.reverse.apply(this.split("")).join("") ;
+    };
+    console.log("maizi".reverse()) ;
+
+    //检测方法是否存在，不存在就扩展
+    if(!Array.prototype.inArray){
+        Array.prototype.inArray = function (needle) {
+            for (var i=0,len=this.length;i<len;i++){
+                if (this[i]==needle){
+                    return true
+                }
+            }
+            return false ;
+        }
+    }
+    var arr = ["a","b","c","d"] ;
+    console.log(arr.inArray("b")) ;
+    console.log(arr.inArray("C")) ;
+
+    //原有对象不能访问新增的原型对象的属性
+    function Test() {}
+    Test.prototype.name = "chao" ;
+    var t = new Test() ;
+//    alert(t.name) ;//可以访问
+    Test.prototype.color = "blue" ;
+//    alert(t.color) ;//可以访问
+    Test.prototype = {
+       hobby : "游泳"
+    };//属性覆盖更新了,原型本来就是一个对象，构造函数上的一个属性
+    alert(t.name);//chao,
+    for (var i in t){
+        console.log(i)
+    }//两个
+//    alert(t.hobby) ;//undefined;不能访问
+//    alert(typeof t._proto_.name) ;
+//    alert(typeof t._proto_.hobby) ;
+    //要先创建一个
+    var t1 = new Test() ;//表示一个新的对象，原型38行
+    alert(t1.color) ;//undefined
+    for (var i in t1){
+        console.log(i)
+    }//1个,hobby,之前的被覆盖了,但是t对象的属性还是两个没变
+    console.log(t1.constructor) ;//返回的function Object(){}
+    //通过改写constructor属性
+    Test.prototype.constructor = Test ;//重置constructor
+    console.log(t1.name) ;//undefined
+    console.log(t.hobby) ;//undefined
+    console.log((t==t1)) ;//false
+    var t2 = new Test() ;
+    console.log(t2.name) ;//undefined
+    console.log(t2.hobby) ;//游泳
+    for (var i in t1){
+        console.log(i)
+    }//两个，hobby与constructor
+
+    function F() {}
+    var o = new F() ;
+    var o1 = new F() ;
+    console.log(o==o1) ;//两个对象不是相等的，要注意,o与o1
+    console.log(o.constructor) ;
+    console.log(o1.constructor) ;
+
+    //-->
+</script>
+</body>
+</html>

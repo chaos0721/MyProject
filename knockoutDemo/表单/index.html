@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>表单提交</title>
+		<script src="js/knockout.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/knockout.validation.min.js"></script>
+		<style>
+			.errorStyle {
+				color:red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="content2">
+			<form action="#" data-bind="submit:SubmitForm">
+				<div><label>姓名:</label><input type="text" data-bind="value:Name" /></div>
+				<div><label>邮箱:</label><input type="text" data-bind="value:Email" /></div>
+				<div><label>地址:</label>
+					<select data-bind="options:CityList,optionsValue:'Code',optionsText:'Name',value:City,optionsCaption:'请选择城市'"></select>
+					<select data-bind="options:currentAreaList,optionsValue:'Code',optionsText:'Name',value:Area,optionsCaption:'请选择地区'"></select>
+				</div>
+				<div>
+					<label>爱好</label>
+					<select multiple="multiple" data-bind="options:Hobbies,selectedOptions:MyHobbies"></select>
+					<b data-bind="html:MyHobbies"></b>
+				</div>
+				<input type="submit" value="提交">
+			</form>
+			<div class="errorStyle" data-bind="validationMessage:Name"></div>
+		</div>
+		<script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var ViewModel = function(){
+				var self = this ;
+				self.Name = ko.observable('').extend({required:{params:true,message:'请输入用户名'}});
+				self.Email = ko.observable('').extend({required:{params:true,message:'请输入邮箱'}}).extend({pattern:{message:'请输入正确的邮箱地址',params:'^\d{6}&/'}});
+				self.City = ko.observable('');
+				self.Area = ko.observable('');
+				self.CityList = ko.observableArray([
+					{Name:'上海',Code:1001},
+					{Name:'北京',Code:1002}
+				]);
+				self.AreaList = ko.observableArray([
+					{Name:'静安区',Code:1001001,CityCode:1001},
+					{Name:'浦东区',Code:1001002,CityCode:1001},
+					{Name:'闵行区',Code:1001003,CityCode:1001},
+					{Name:'宣武区',Code:1002001,CityCode:1002},
+					{Name:'朝阳区',Code:1002002,CityCode:1002},
+					{Name:'海淀区',Code:1002003,CityCode:1002}
+
+				]);
+				self.Hobbies = ko.observableArray([
+					'游泳',
+					'睡觉',
+					'玩游戏',
+					'看电视'
+				]);
+				self.MyHobbies = ko.observable('');
+				self.currentAreaList =ko.computed(function(){
+					return ko.utils.arrayFilter(self.AreaList(),function(area){
+						return area.CityCode == self.City();
+					});
+
+				},self);
+				self.SubmitForm = function(){
+					if(self.errors().length>0){
+						self.errors.showAllMessages();
+						return false;
+					}else{
+						return true;
+					}
+				};
+
+			};
+
+			$(document).ready(function(){
+				var currentViewModel = new ViewModel() ;
+				ko.applyBindings(currentViewModel);
+				currentViewModel.errors = ko.validation.group(currentViewModel);
+
+			});
+
+		</script>
+	</body>
+</html>

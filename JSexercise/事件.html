@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box1" style="background:#ABCDEF;width:300px;height: 300px;">
+    <input type="button" value="" id="btn1" />
+</div>
+<script type="text/javascript">
+    <!--
+//    var btn1 = document.getElementById("btn1") ;
+//    btn1.onclick = function (e) {
+//        var e = e || window.event ;
+//        alert(e) ;
+//    }; //跨浏览器兼容,  后面写给IE的
+
+    //DOM2级模型
+    //addEventListen
+    var btn1 = document.getElementById("btn1") ;
+    var box1 = document.getElementById("box1") ;
+    btn1.onclick = function (e) {
+        alert("button click");
+        //取消冒泡
+        var e= e || window.event ;
+        //w3c取消冒泡
+//        e.stopPropagation() ;
+        //IE 取消冒泡 e.cancelBubble = true
+        if (typeof e.cancelBubble == "undefined"){
+            e.stopPropagation() ;
+        }else {
+            e.cancelBubble = true ;
+        }
+    };
+    box1.onclick = function () {
+        alert("div click")
+    } ;
+    document.body.onclick = function () {
+        alert("body click")
+    } ;
+    document.documentElement.onclick = function () {
+        alert("html click")
+    };
+    document.onclick = function () {
+        alert("document click")
+    };
+    //button-div-body-html-document  冒泡
+
+
+    //-->
+</script>
+</body>
+</html>

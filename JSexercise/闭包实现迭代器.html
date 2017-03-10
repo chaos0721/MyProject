@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+<!--
+    function test(x) {
+        var i = 0 ;
+        alert(i) ;//只调用一次
+        return function () {
+//            i++;
+            return x[i++] ;//第一次先执行i=0，然后在加一
+        };//函数多次调用会不断变化
+    }
+    var next = test(["a","b","c","d"]) ;
+    alert(next()) ;//结果为a
+    alert(next()) ;//结果为b
+    alert(next()) ;//结果为c
+    alert(next()) ;//结果为d
+//-->
+</script>
+</body>
+</html>

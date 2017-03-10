@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    <!--
+    function Shape(){}
+    Shape.prototype.name = "shape";
+    Shape.prototype.toString = function () {
+        var result = [] ;
+        if (this.constructor.uber){
+            result[result.length] = this.constructor.uber.toString();
+        }
+        result[result.length] = this.name ;
+        return result;
+    };
+    function TwoDShape() {}
+    var F = function(){} ;
+    F.prototype = Shape.prototype ;
+    TwoDShape.prototype = new F() ;
+    TwoDShape.prototype.constructor=TwoDShape ;
+    TwoDShape.uber = Shape.prototype ;
+    TwoDShape.prototype.name = "2d shape" ;
+
+    function Triangle(side,height){
+        this.side = side ;
+        this.height = height ;
+    }
+    var F =function(){} ;
+    F.prototype = TwoDShape.prototype ;
+    Triangle.prototype = new F() ;
+    Triangle.prototype.constructor = Triangle ;
+    Triangle.uber = TwoDShape.prototype ;
+    Triangle.prototype.name = "triangle" ;
+    Triangle.prototype.getArea = function () {
+        return this.side*this.height/2
+    };
+
+    var my = new Triangle() ;
+    console.log(my.toString()) ;
+    var td = new TwoDShape() ;
+    console.log(td.toString()) ;
+
+    //封装----------------------------------------------
+    function extend(Child,Parent) {
+        var F =function(){};
+        F.prototype = Parent.prototype ;
+        Child.prototype = new F() ;
+        Child.prototype.constructor = Child ;
+        Child.uber = Parent.prototype ;
+    }
+    function Shape(){}
+    Shape.prototype.toString = function () {
+        var result = [] ;
+        if (this.constructor.uber){
+            result[result.length] = this.constructor.uber.toString();
+        }
+        result[result.length] = this.name ;
+        return result.join(",");
+    };
+    extend(TwoDShape,Shape) ;
+    TwoDShape.prototype.name = "2d shape" ;
+    /*等等
+        ........
+     */
+    //-->
+</script>
+</body>
+</html>

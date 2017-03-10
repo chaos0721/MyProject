@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://bootswatch.com/slate/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    </head>
+	<body>
+		<!--导航-->
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<!--小屏幕导航按钮-->
+				<div class="navbar-header">
+					<button class="navbar-toggle" data-toggle="collapse"  data-target="#slide-sub">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="index.html" class="navbar-brand">Maizi Admin</a>
+				</div>
+				<!--屏幕-->
+				<div class="navbar-collapse collapse" id="slide-sub">
+					<ul class="nav navbar-nav navbar-left">
+						<li><a href="index.html"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;后台首页</a></li>
+						<li><a href="user_list.html"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;用户管理</a></li>
+						<li class="active"><a href="content_list.html"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;内容管理</a></li>
+						<li><a href="tag_list.html"><span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;标签管理</a></li> 
+					</ul> 
+					<ul class="nav navbar-nav navbar-right deal">
+						<li class="dropdown">
+								<a href="" data-toggle="dropdown">
+										admin&nbsp;<span class="caret"></span>
+								</a>
+								<ul class="dropdown-menu">
+									<li><a href=""><span class="glyphicon glyphicon-home"></span>&nbsp;前台首页</a></li>
+									<li><a href=""><span class="glyphicon glyphicon-user"></span>&nbsp;个人首页</a></li>
+									<li><a href=""><span class="glyphicon glyphicon-cog"></span>&nbsp;个人设置</a></li>
+									<li><a href=""><span class="glyphicon glyphicon-credit-card"></span>&nbsp;账户中心</a></li>
+									<li><a href=""><span class="glyphicon glyphicon-heart"></span>&nbsp;我的收藏</a></li>
+								</ul>
+						</li>
+						<li><a href="#"><span class="glyphicon glyphicon-off"></span>&nbsp;注销</a></li> 
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2">
+					<div class="list-group">
+						<a href="content_list.html" class="list-group-item">内容管理</a>
+						<a href="add_content.html" class="list-group-item active">添加内容</a>
+					</div>
+				</div>
+				<div class="col-md-10">
+					<div class="page-header">
+						<h1>内容管理</h1>
+					</div>
+					<ul class="nav nav-tabs">
+						<li>
+							<a href="content_list.html">内容管理</a>
+						</li>
+						<li class="active">
+							<a href="add_content.html">添加内容</a>
+						</li>
+					</ul>
+					<form action="#" class="user_search">
+						<div class="form-group">
+							<label for="title">标题</label>
+							<input type="text" class="form-control" id="title" placeholder="请输入文章标题" />
+						</div>
+						<div class="form-group">
+							<label for="title1">文章内容</label>
+							<textarea class="form-control" id="title1" rows="15" placeholder="请输入文章正文部分"></textarea>
+						</div>
+						<div class="checkbox">
+							<label for="checkbox">
+								<input type="checkbox" name="" id="checkbox" />全局置顶
+							</label>
+							<button type="submit" class="btn btn-default pull-right">发布文章</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!--footer-->
+		<footer id="foo" class="navbar-fixed-bottom">
+			<div class="container">
+				<p>Copyright © 2012-2015  www.maiziedu.com  蜀ICP备13014270号-4</p>
+			</div>
+		</footer>
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/jquery.placeholder.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("input,textarea").placeholder() ;
+			})
+		</script>
+	</body>
+</html>

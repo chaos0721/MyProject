@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+<!--
+    function Foo(name,age,addr) {
+        this.name = name ;
+        this.age = age ;
+        this.addr = addr;
+    }
+    Foo.prototype.gender = "男" ;
+    var foo = new Foo() ;
+    //Object.freeze(foo) ;加了不能定义了
+    Object.defineProperty(foo,"gender",{
+       value : "女",
+        enumerable :true  //加了这个keys可以枚举了
+    }); // 加了该段代码会把gender不能枚举,这个原先的被覆盖了
+    // ,因为其他三个特性默认false,gender变成foo本身属性,可以被getOwnPropertyNames、Object.keys(在enmerable为true时)遍历
+    console.log(Object.keys(foo)) ;//不能遍历原型的属性
+    alert(foo.gender) ;
+    console.log(Object.getOwnPropertyNames(foo)) ;
+    for (var i in foo){
+        console.log(i) ;  //可以遍历原型上的属性,返回的不是数组
+    }
+//-->
+</script>
+</body>
+</html>

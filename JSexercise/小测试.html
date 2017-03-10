@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var obj ={
+        x:1,
+        y:2
+    };
+//    Object.preventExtensions(obj) ;
+    obj.z = 2 ;
+    console.log(obj.z) ;//undefined不可扩展了
+    console.log(Object.getOwnPropertyDescriptor(obj,"x")) ;//无影响，默认值true
+    Object.seal(obj);
+    console.log(Object.getOwnPropertyDescriptor(obj,"x"));//不可扩展,不可配置,其他默认,可以修改
+    Object.freeze(obj);
+    console.log(Object.getOwnPropertyDescriptor(obj,"x"));//不可扩展,不可配置，不可写，可枚举
+</script>
+</body>
+</html>

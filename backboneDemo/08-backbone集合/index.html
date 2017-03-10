@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/underscore.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/backbone-min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+
+			var list = [
+				{
+					title : 'title1',
+					description : 'description1'
+
+				},
+				{
+					title : 'title2',
+					description : 'description2'
+
+				},
+				{
+					title : null,
+					description : 'description1'
+
+				}
+			] ;
+
+			var MyList = Backbone.Collection.extend({
+
+			}) ;
+
+			var aList = new MyList(list) ;
+
+			var foo = aList.find(function(model){
+				return model.get('title') == 'title1' ;
+			});
+
+			var foo1 = aList.filter(function(model){
+				return model.get('description') == 'description1' ;
+			});
+
+			var foo2 = aList.where({
+				description : 'description1'
+			},true);//true表示只找一个
+
+			aList.each(function(model){
+				console.log(model.get('title'));
+			}) ;
+
+			var foo3 = aList.every(function(model){
+				return model.get('title') !== null ;
+			}) ;
+
+			var foo4 = aList.some(function(model){
+				return model.get('title') !== null ;
+			}) ;
+
+			var foo5 = aList.pluck('title') ;
+
+			var foo6 = aList.map(function(model){
+				return model.get('title') ;
+			}) ;
+
+			var foo7 = aList.reduce(function(memo,model){
+				return memo+model.get('title')+',';
+			},'') ;
+
+
+		</script>
+	</body>
+</html>

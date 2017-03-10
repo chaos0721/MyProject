@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    <!--
+        var obj1 = Object.create({},{
+            getFoo:{  //想想Object.defineProperty,这创建的是原型上的属性
+                value :function () {
+                    return this.foo ;
+                },
+                writable : true
+            }
+        }) ;
+        obj1.foo = 123 ;
+        console.log(Object.keys(obj1)) ;//返回的数组，keysssss,原型上的属性getFoo遍历不到
+        alert(obj1.getFoo()) ;//123
+        console.log(Object.getOwnPropertyDescriptor(obj1,"foo")) ;//不能遍历原型上的getFoo,ownnnnnnn
+        //可以通过Object.getPropertyNames ;
+     //-->
+</script>
+</body>
+</html>

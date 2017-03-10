@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    <!--
+    //constructor返回原型，打回原形
+    var  obj = new Object() ;
+    console.log(obj.constructor==Object) ;//true,
+    var arr = new Array()  ;
+    console.log(arr.constructor==Array) ;
+    //valueOf()
+    console.log(obj.toString()) ;//这有对象可以返回Object Object这种形式
+    console.log(arr.toString()) ;//空，用下面的方法
+    console.log(Object.prototype.toString.call(arr)) ;//Object Array
+
+    var obj1 = {x:1} ;
+    console.log(obj1.valueOf());//Object{x:1} ;返回对象本身
+    //-->
+</script>
+</body>
+</html>

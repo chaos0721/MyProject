@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    <!--
+    function Foo(){}
+    Foo.prototype.z = 3 ;//相当于设置了value
+    var obj = new Foo() ;
+    obj.x = 1 ;
+    obj.y = 2 ;
+    console.log("x" in obj) ;
+    console.log(obj.propertyIsEnumerable("z")) ;
+    console.log("z" in obj) ;  //true
+    console.log(Object.getOwnPropertyDescriptor(obj,"z")) ;//undefined Own !!!!!!
+//    //属性是对象自己的并且可枚举的返回true,z是原型的
+    console.log(obj.propertyIsEnumerable("z")) ; //false,原型枚举不了,枚举不了继承下来的属性
+    for(var p in obj){
+        console.log(p);    //可以遍历原型
+    }
+    console.log(obj.x!==undefined) ;
+    console.log(obj.toString!==undefined) ;
+    console.log(Object.prototype.propertyIsEnumerable("toString")) ; //  toString  在顶层Object.prototype上
+    var obj = {
+        x:1,
+        y:2,
+        z:3,
+        username:"king",
+        age:12,
+        addr:"北京"
+    } ;
+    for (var i in obj ){
+        console.log(i) ;  //可以继承原型上的属性
+    }
+    //返回所有自有属性的名称
+    console.log(Object.getOwnPropertyNames(obj)) ;
+    console.log(Object.keys(obj)) ;  //不会遍历原型上的属性
+
+    //通过创建对象，其属性四个特性都是默认true，
+    // 通过Object.definePropery添加或修改的属性四个特性默认false
+
+    var obj1 = {} ;
+    obj1.x = 1;
+    obj1.y = 2 ;
+    obj1.x = 123 ;
+    obj1.y = 456 ;
+    console.log(obj1.x+":"+obj1.y) ;  //对象调用属性值
+    // 对象名.属性名 或 对象吗["属性名"],同调用数组arr[0]
+    for (var i in obj1){
+        console.log(i) ;
+    }
+    console.log(Object.keys(obj1)) ;  //返回数组
+    console.log(Object.getOwnPropertyNames(obj)) ; //返回数组
+    //-----------------------------------------
+    var obj2 = {} ;
+    Object.defineProperty(obj2,"x",{
+        value : 12
+    });  //这个时候x属性其他三个特性都为false了，不能修改，不能枚举，属性值12
+    console.log(obj2.x) ;
+    obj2.x = 456 ;
+    console.log(obj2.x) ;
+    for (var p in obj2) {
+        console.log(p) ; //不可枚举,包括x;
+    }
+    console.log(Object.keys(obj2)) ;//返回的是空数组,不能遍历原型上的属性
+    console.log(Object.getOwnPropertyNames(obj2)) ;  //结果 ["x"] ，和是否可枚举无关
+    //Object.keys只适用于可枚举的属性，而Object.getOwnPropertyNames返回对象自动的全部属性名称。
+    //getOwnPropertyNames 方法同时返回可枚举的和不可枚举的属性和方法的名称,不能遍历原型上的属性名
+    //-------------------------------------------------------------------------------------
+    Object.defineProperty(obj2,"y",{
+       value : 56,
+        writable:true, //是否可修改
+        enumerable : true,//是否可枚举
+        configurable:false //可配置,是否可删除，是否可以修改可枚举，修改等等
+    });
+    console.log(obj2.y) ;
+    obj2.y = 12 ;
+    console.log(obj2.y) ;
+    for (var p in obj2){
+        console.log(p) ;
+    }
+    console.log(Object.keys(obj2)) ;//结果["y"]
+    console.log(Object.getOwnPropertyNames(obj2)) ;  //结果 ["x","y"]
+    //-----------------------------------
+    Object.defineProperty(obj2,"z",{
+       value :"this is a test",
+        writable:true ,
+        enumerable:true,
+        configurable:false
+    });
+    console.log(obj2.z) ;
+    obj2.z = "hello" ;
+    console.log(obj2.z) ;
+    delete obj2.z ;
+    console.log(obj2.z) ;  //不可删除
+    //------------------------------------------
+    Object.defineProperty(obj2,"k",{
+        value :1 ,
+        writable:false,
+        enumerable:false,
+        configurable:true
+    });
+    obj2.k = 3 ;
+    console.log(obj2.k) ;
+    Object.defineProperty(obj2,"k",{
+        writable:true ,
+        value :5
+    });
+    //----------------------------------------------
+    //因为98行定义了可配置configurable为true,
+    // 说明可以重新配置,必须要用Object.defineProperty来重新配置
+    //如果98行configurable为false会报错，不能重新定义,就是一票否决,之前的没有影响
+    console.log(obj2.k) ;
+    //--------------------------多看谷歌报错--------------------------------------
+    var obj3 = {} ;
+    Object.defineProperty(obj3,"x",{
+        get : function () {  //get是存储器
+            return 123 ;
+        }
+    });
+    console.log(obj3.x) ;
+    //-->
+</script>
+</body>
+</html>

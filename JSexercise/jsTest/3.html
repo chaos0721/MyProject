@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img {
+            display: none;
+            position: absolute;
+            height: 100px;
+    }
+        img:first-child,img:target {
+            display: block;
+        }
+        #top {
+            height: 100px;
+            position: relative;
+        }
+        #bottom a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div id="top">
+    <img src="a.png" alt="" id="img1">
+    <img src="b.png" alt="" id="img2">
+</div>
+<div id="bottom">
+    <a href="#img1">第ww张</a>
+    <a href="#img2">第二张</a>
+</div>
+</body>
+</html>

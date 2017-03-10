@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+<!--
+//通过闭包突破全局作用域链①------------------------------S
+function f() {
+    var a = "chao" ;
+    return function () {  //这是一种函数的闭包
+        return a ;
+    }
+}
+//alert(a) ;//报错，未定义
+var test = f() ;
+alert(test()) ;
+//-------------------------------------------------------- E
+
+//通过闭包突破全局作用域链②------------------------------S
+var n ;
+function f1() {
+    var a = "chao" ;
+        n = function () { //第二种闭包,通过全局变量来访问a
+        return a ;
+    }
+}
+f1();//如果不写会出现n not a function,
+// 要先调用出来，没有调用就是这个函数不存在，这个函数不存在，n就不存在
+alert(n());
+//--------------------------------------------------------------E
+
+//-通过闭包突破全局作用域链②------------------------------------S
+function f2(param) {
+    var n =function () {
+        return param ;
+    };
+    param++;
+    return n ;
+}
+alert(f2(456)()) ;
+
+
+
+
+
+//-->
+</script>
+</body>
+</html>

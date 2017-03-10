@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var person = {
+        username : "king" ,
+        age : 12 ,
+        salary :1234.56 ,
+        addr : "北京" ,
+        gender : "男"
+    };
+    document.write(person.username) ;
+    document.write("<br />"+person["username"]) ; //必须加引号
+    //如果属性不确定使用[]
+    var key = "username" ;
+    document.write("<br />"+person.key) ;  //此数组里没有key这个属性
+    document.write("<br />"+person[key]) ;
+    document.write("<br />"+person["key"]) ;
+    function PersonInfo(name,age,gender) {
+        this.name1 = name ;   //serrrrrrrrrrrrrrrr3444444444444444
+        this.age1 = age ;   //serrrrrrrrrrrrrrrr3444444444444444
+        this.gender1 = gender ; //serrrrrrrrrrrrrrrr3444444444444444
+    }
+    var person1 = new PersonInfo("king",34,"男") ;
+    document.write(person1.name1) ;
+    person1["addr"] = "北京" ;
+    for (var i in person1){
+        console.log(i) ;        //serrrrrrrrrrrrrrrr3444444444444444
+    }
+    var obj = {} ;
+    obj["test"] = "this is a test!" ;
+    alert(obj.test) ;
+    //修改属性
+    obj.username = "queen" ;
+    document.write(obj.username) ;
+
+    //删除属性
+    delete obj.test ;
+    document.write(obj.test) ;
+    //for in便利属性
+    var obj1 = {
+        x : 1 ,
+        y :2 ,
+        test : "this is a test" ,
+        edu : "麦子学院"
+    } ;
+    for (var attr in obj1){
+        console.log(obj) ;
+    }
+    obj2 = {
+        username : "king" ,
+        age : 12 ,
+        addr : "北京" ,
+        sayHi : function () {
+            return "say Hi" ;
+        } ,
+        info : function () {
+            return "用户名: "+this.username+"\n"+"年龄: "+this.age+"\n"+"地址: "+this.addr ;
+        }
+    };
+    console.log(obj2.sayHi()) ; //调用方法加小括号
+    console.log(obj2.info()) ;
+    console.log(obj2["info"]()) ;
+    function Person(username,age,gender,addr) {
+        this.username = username ;
+        this.age = age ;
+        this.gender = gender ;
+        this.addr = addr ;
+        this.info = function () {
+            return this.username+this.addr ;
+        };
+    }
+    var p1 = new Person("queen",34,"女","上海") ;
+    console.log(p1.info()) ;
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript">
+    <!--
+//        function saveStorage() {
+//            var target = document.getElementById("input") ;
+//            var str = target.value ;
+//            sessionStorage.setItem("mess",str) ;
+//        }
+//        function loadStorage(id) {
+//            var target = document.getElementById(id) ;
+//            var msg = sessionStorage.getItem("mess") ;
+//            target.innerHTML = msg ;
+//        } //临时缓存
+    //---------------------------------------------------------------------------
+          function saveStorage() {
+              var v = document.getElementById("input") ;
+              var t = v.value ;
+              localStorage.setItem("mess",t) ;
+          }
+          function loadStorage() {
+              var v =document.getElementById("msg") ;
+              var t = localStorage.getItem("mess") ;
+              v.innerHTML = t ;
+          } //永久储存
+    //-->
+</script>
+<body>
+<h1>Web Storage本地缓存</h1>
+<p id="msg"></p>
+<input type="text" id="input" />
+<input type="button" value="保存数据" onclick="saveStorage()" />
+<input type="button" value="读取数据" onclick="loadStorage('msg')" />
+</body>
+</html>

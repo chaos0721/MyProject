@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input[type="button"] {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div style="margin: 0 auto;width: 600px;">
+    姓名:<input type="text" name="" id="name" size="10" />
+    Email:<input type="email" name="" id="email" size="10" />
+    年龄:<input type="number" name="" id="age" />
+</div>
+<br />
+<br />
+<br />
+<input type="button" value="添加" onclick="fun()" style="margin: 0 auto" />
+<br />
+<br />
+<br />
+<br />
+<hr />
+<table align="center" width="600" border="1" cellpadding="1" cellspacing="0">
+    <tr>
+        <td>姓名</td>
+        <td>邮箱</td>
+        <td>年龄</td>
+        <td>操作</td>
+    </tr>
+</table>
+<script type="text/javascript">
+<!--
+    function fun() {
+        //得到name、email、age值
+        var getName = document.getElementById("name").value ;
+        var getEmail = document.getElementById("email").value ;
+        var getAge = document.getElementById("age").value ;
+        if((getName != "")&&(getAge!="")&&(getEmail != "")){
+            //创建tr
+            var tr = document.createElement("tr") ;
+            //创建四个表格
+            var name = document.createElement("td") ;
+            name.innerHTML = getName ;
+            var email = document.createElement("td") ;
+            email.innerHTML = getEmail ;
+            var age = document.createElement("td") ;
+            age.innerHTML = getAge ;
+            var del = document.createElement("td") ;
+            del.innerHTML = "<input type='button' value='删除' onclick='del(this)' />"
+            //组合tr与td
+            tr.appendChild(name) ;
+            tr.appendChild(age) ;
+            tr.appendChild(email) ;
+            tr.appendChild(del) ;
+            //给储存器添加tr
+            var cons = document.getElementsByTagName("table")[0] ;
+            cons.lastChild.appendChild(tr) ;
+        }else {
+            alert("请输入全部内容!")
+        }
+    }
+    function del(btn) {
+        //删除行
+        var tr= btn.parentNode.parentNode ;
+        var tbody = tr.parentNode ;
+        tbody.removeChild(tr) ;
+    }
+//-->    
+</script>
+</body>
+</html>

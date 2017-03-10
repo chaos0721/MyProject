@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var str = new String() ;//对象
+    console.log(str[0]) ;
+    console.log("maizi"[0]) ;//默认自己创建了一个string对象
+    console.log("hellow".length) ;
+    var str1 = "king" ;
+    //charAt,返回指定的字符，根据下标
+    console.log(str1.charAt(0)) ;//k
+    //chaCodeAt返回指定字符的ASCII码值
+    console.log(str.charCodeAt(0)) ;
+    //fromCharCode根据提供的ASCII返回对应的字符
+    console.log(String.fromCharCode(97)) ;//a
+    console.log(String.fromCharCode(65,66,67))//ABC
+    //concat连接字符串
+    var str2  = "hellow" ;
+    console.log(str.concat("word","!")) ;//相当于加号
+    //indexOf返回字符串首次出现的位置
+    console.log(str2.indexOf("h"));//0,区分大小写，没找到返回-1
+    console.log(str2.indexOf("i",3)) ;
+    //通过indexOf()可以通缉一个字符在指定字符串中出现的次数
+    var str3 = "asdqweterytrtyrt";
+    var count = 0 ;
+    var pos = str3.indexOf("y") ;
+    while (pos!=-1){
+        count++;
+        pos = str3.indexOf("y",pos+1) ;
+    }
+    console.log(count) ;//2
+    //lastIndexOf()最后一次出现的位置,空格长度为1
+    //比较两个字符串,用特殊的本地顺序
+    console.log("a".localeCompare("z")) ;//-1,
+    //match不加g只能找到一个，加了返回一个数组
+    //replace,slice,splice,split,toUpperCase,toLocalUpperCase
+    //trim()过滤去掉空格
+    //valueOf
+    //产生锚点
+    var str4 = "this is a test" ;
+    document.body.innerHTML = str4.anchor("contents_an");
+    //产生链接
+    var title = "this is a test"
+    var url = "http://www.baidu.com"
+    document.write("click me to visit it!"+title.link(url)) ;
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript">
+    <!--
+        /*
+            掌握：1.href属性
+                   2.reload()方法：重新加载本页面
+
+        */
+        function fun() {
+            window.location.href = "history/b.html" ;
+            document.write(window.location) ;
+        }
+        function fun1() {
+            window.location.reload() ;
+        }
+    //-->
+</script>
+<body>
+<input type="button" value="直接去a页面" onclick="fun()" />
+<input type="button" value="重新加载本页面" onclick="fun1()" />
+</body>
+</html>

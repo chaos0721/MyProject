@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript">
+    function fun() {
+        document.all[6].innerHTML = "你好" ;  //很麻烦
+        document.forms[1].username.value = "表单数组";
+        document.images[2].src = ".idea/图片轮播/images/banner01.png"
+    }
+
+</script>
+<body onload="fun()">
+<p></p>
+<form action="">
+    姓名1:<input type="button" />
+</form>
+<form action="">
+    姓名2:<input type="button" name="username" />
+</form>
+<form action="">
+    姓名3:<input type="button" />
+</form>
+<img src="" alt="">
+<img src="" alt="">
+<img src="" alt="">
+<img src="" alt="">
+</body>
+</html>

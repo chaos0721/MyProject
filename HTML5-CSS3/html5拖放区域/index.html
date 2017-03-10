@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖放区域</title>
+	<script>
+	function allowDrop(ev){
+	// 不执行默认处理(拒绝被拖放)
+	ev.preventDefault();
+}
+function drag(ev){
+	// 使用setData(数据类型，携带的数据)
+	// 方法将要拖放的数据粗如dataTransfer对象
+	ev.dataTransfer.setData("Text",ev.target.id);
+}
+function drop(ev){
+	ev.preventDefault();
+	var data = ev.dataTransfer.getData("Text");
+	ev.target.appendChild(document.getElementById(data));
+}
+	</script>
+	<style>
+	#cun{
+		width: 540px;
+		height: 320px;
+		border: 2px solid #D2D2D2;
+		box-shadow: 1px 4px 8px #646464;
+	}
+	#tuo{
+		width: 540px;
+		height: 320px;
+	}
+	</style>
+</head>
+<body>
+	<div id="cun" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+	<br />
+	<img src="tmls.jpg" id="tuo" draggable="true" ondragstart="drag(event)" />
+</body>
+</html>

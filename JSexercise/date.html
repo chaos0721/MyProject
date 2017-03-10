@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    <!--
+    var d = new Date() ;
+    console.log(d) ;//默认当前时间!!!!!!中国标准
+    alert(d.toLocaleString());//  2016//11/18 下午7:02:57
+    var d = new Date(14564646674967);//中国标准
+    console.log(d) ;
+    var d = new Date(2015,13,3) ;//2016年2月3号,有补0的
+    console.log(d) ;//中国标准
+    var d = new Date(15,1) ;//2015年2月1号 周。月份都是从0开始,m默认其他0
+    console.log(d) ;//中国标准
+
+    console.log(Date.now()) ;//毫秒
+    console.log(Date.parse("Tue Jul 15 2431 15:11:14 GMT+0800")) ;//解析一个字符串//毫秒
+    console.log(Date.UTC(2015,12,"01",0,0,0,0)) ;//毫秒
+    var d = new Date("2015-09-26 12:34:34") ;
+    console.log(d.getDate());  //gerDay 0是星期六
+    console.log(d.getYear()) ;//115
+    console.log(d.getFullYear()) ;//2015
+    console.log(d.getMinutes()) ;
+    console.log(d.getMilliseconds()) ;
+    console.log(d.getSeconds()) ;
+    console.log(d.getUTCMonth());
+    /*
+    * 等等.....
+    * */
+    d.setDate("11") ;
+    console.log(d) ;//标准
+    d.setFullYear("2016") ;
+    console.log(d);//标准
+    /*
+     * 等等.....
+     * */
+    d.setTime(145669656);//转成标准
+    console.log(d.getTime()) ;//然后转成毫秒
+    var d = new Date() ;
+    alert(d.toString()) ; //字符串可以拆分split
+    alert(d.valueOf()) ;//1970到现在毫秒数
+    console.log(d.toJSON()) ;
+    var d = new Date("2016-11-18T08:32:55.463Z");
+    console.log(d) ;
+    //-->
+</script>
+</body>
+</html>

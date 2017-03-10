@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    function extend(Child,Parent) {
+        var F =function(){};
+        F.prototype = Parent.prototype ;
+        Child.prototype = new F() ;
+        Child.prototype.constructor = Child ;
+        Child.uber = Parent.prototype ;
+    }
+    function extend1(Child,Parent) {
+        var p = Parent.prototype ;
+        var c = Child.prototype ;//父子参考原型图
+        // Object.prototype所有对象的是父级，然后依次排序，
+        //比如构造函数创建的对象是子级,原型是其父级
+        for(var i in p){
+            c[i] = p[i]
+        }
+        c.uber = p ;
+    }
+    var Shape = function(){} ;
+    var TwoDShape = function(){} ;
+    Shape.prototype.name = "shape" ;
+    Shape.prototype.toString = function () {
+        return this.name ;
+    };
+    extend(TwoDShape,Shape) ;
+    var td = new TwoDShape() ;
+    console.log(td.name) ;
+    console.log(TwoDShape.prototype.name) ;
+    console.log(td.__proto__.name) ;
+    console.log(td.hasOwnProperty("name")) ;//false
+    console.log(td.__proto__.hasOwnProperty("name")) ;//false
+    extend1(TwoDShape,Shape) ;
+    var td = new TwoDShape() ;
+    console.log(td.__proto__.hasOwnProperty("name")) ;//true
+    console.log(td.__proto__.hasOwnProperty("toString")) ;//true
+    console.log(td.__proto__.toString===Shape.prototype.toString) ;
+
+
+    var A = function(){};
+    var B = function(){} ;
+    A.prototype.test = [1,2,3] ;
+    A.prototype.test1 = "this is a test" ;
+    extend1(B,A) ;
+    console.log(B.prototype.hasOwnProperty("test"));
+    console.log(B.prototype.hasOwnProperty("test1"));
+    console.log(B.prototype.test);
+    console.log(B.prototype.test===A.prototype.test);
+    B.prototype.test1 = "hellow" ;
+    console.log(A.prototype.test1) ;
+    B.prototype.test.push(4,5,6) ;
+    console.log(A.prototype.test) ;
+
+
+    //重写test属性,对象是通过引用来传递的
+    B.prototype.test = ["aa","bb","cc","dd"] ;
+    console.log(A.prototype.test) ;
+    console.log(B.prototype.test) ;
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

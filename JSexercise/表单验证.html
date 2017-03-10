@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>表单验证</h1>
+<form action="doAction.php" method="post" onsubmit="return check(this)">
+    用户名: <input type="text" name="username" id="username" /><br />用户名只能包括字母数字下划线 <br />
+    密码: &nbsp;<input type="password" id="password" name="possword" /> <br />密码不能为空 <br />
+    邮箱: &nbsp;<input type="email" id="email" name="email" /><br />请输入合法邮箱 <br/>
+    <input type="submit" value="提交" />
+</form>
+<script type="text/javascript">
+    <!--
+        function check() {
+            var username = document.getElementById("username") ;
+            v = username.value ;
+            if (!/^[a-zA-Z0-9_]+$/.test(v)){
+                alert("用户名不合法!");
+                return false ;
+            }
+            var password =  document.getElementById("password").value ;
+            if (/^[\t\n\r\s]*$/.test(password)){
+                alert("密码不能为空");
+                return false ;
+            }
+            var email = document.getElementById("email").value ;
+            if (!/^[\w-]+()/.test(email)){
+                 //自己网上找
+            }
+
+        }
+    //-->
+</script>
+</body>
+</html>

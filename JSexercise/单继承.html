@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    <!--
+//    function object(o) {
+//        function F(){}
+//        F.prototype = o ;
+//        return new F() ;
+//    }
+//    //如果想访问uber属性
+//    function object(o) {
+//        function F(){}
+//        F.prototype = o ;
+//        var n = new F() ;
+//        n.uber = o ;
+//        return n ;
+//    }
+//
+//    var Shape = {
+//        name :"shape",
+//        toString:function () {
+//            return this.name ;
+//        }
+//    } ;
+//    var TwpDShape = object(Shape) ;
+//    TwpDShape.name = "2d shape" ;
+//    TwpDShape.toString = function () {
+//        return this.uber.toString()+"--"+this.name ;//这覆盖shape里面的string了？
+//    };
+//    var Triangle = object(TwpDShape) ;
+//    Triangle.name = "triangle" ;
+//    Triangle.getArea = function () {
+//        return this.side*this.height/2 ;
+//    };
+//    console.log(Triangle.toString()) ;
+//
+
+    function objectPlus(o,stuff) {
+        function F() {}
+            F.prototype = o ;
+            var n = new F() ;
+            n.uber = o ;
+            for (var i in stuff) {
+                n[i] = stuff[i];
+            }
+            return n ;
+    }
+    var Shape = {
+        name :"shape" ,
+        toString: function () {
+            return this.name ;
+        }
+    };
+    var TwoDShape = objectPlus(Shape,{
+        name :"2d shape" ,
+        toString : function () {
+            return this.uber.toString()+"--"+this.name ;
+        }
+    });
+    var Triangle = objectPlus(TwoDShape,{
+        name : "triangle" ,
+        getArea : function () {
+            return this.side*this.height/2 ;
+        },
+        side :0 ,
+        height : 0
+    }) ;
+    var my = objectPlus(Triangle,{
+        side :5,
+        height:10
+    }) ;
+    console.log(my.toString()) ;
+
+
+
+
+
+
+
+
+
+    //-->
+</script>
+</body>
+</html>

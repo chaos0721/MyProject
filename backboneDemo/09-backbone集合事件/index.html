@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/underscore.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/backbone-min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<ul id="aView">
+
+		</ul>
+		<script type="text/javascript">
+
+			var list = [
+				{
+					title : 'title1',
+					description : 'description1'
+
+				},
+				{
+					title : 'title2',
+					description : 'description2'
+
+				},
+				{
+					title : 'title3',
+					description : 'description3'
+
+				}
+			] ;
+
+			var MyList = Backbone.Collection.extend({
+
+			}) ;
+
+			var aList = new MyList(list) ;
+
+			var ItemView = Backbone.View.extend({
+				tagName : 'li',
+				className : 'list-item',
+				render : function(){
+					this.$el.html(this.model.get('title'));
+				}
+			});
+
+			var ListView = Backbone.View.extend({
+
+
+
+			});
+
+			var aView = new ListView({
+				e1 : '#aView',
+				collection : aList
+			});
+
+			aView.render() ;
+
+			aList.add({
+				title : 'title added',
+				description : 'description added'
+			},{at:2});
+
+			var newDataSource = [
+			 ] ;
+
+
+
+
+
+		</script>
+	</body>
+</html>

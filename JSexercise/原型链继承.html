@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    <!--
+    function Shape() {
+        this.name = "shape" ;
+        this.toString = function () {
+            return this.name ;
+        }
+    }
+    function TwoDshape() {
+        this.name = "2D shape" ;
+    }
+    function Triangle(side,height) {
+        this.name = "triangle" ;
+        this.side = side ;
+        this.height = height ;
+        this.getArea = function () {
+            return this.side*this.height/2 ;
+        }
+    }
+    TwoDshape.prototype = new Shape() ;
+    Triangle.prototype = new TwoDshape() ;
+    //重置constructor属性
+   TwoDshape.prototype.constructor = TwoDshape ;
+   Triangle.prototype.constructor = Triangle ;
+   var myTriangle = new Triangle(5,10) ;
+   console.log(myTriangle.getArea()) ;
+   console.log(myTriangle.toString()) ;
+   console.log(myTriangle.constructor) ;//如果重置constructor属性结果伟shape
+   console.log(myTriangle instanceof Triangle) ;
+   console.log(myTriangle instanceof TwoDshape) ;
+   console.log(myTriangle instanceof Shape) ;//都为真
+    console.log(Shape.prototype.isPrototypeOf(myTriangle)) ;//true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //-->
+</script>
+</body>
+</html>

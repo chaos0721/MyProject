@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    <!--
+    //不加new能进行类型转换
+    //构造器
+    var n  = new Number("123.123") ;
+    console.log(n);//对象
+    console.log(Number.MAX_VALUE) ;
+    console.log(Number.MIN_VALUE) ;
+    console.log(Number.NaN) ;
+    console.log(Number.POSITIVE_INFINITY) ;
+    console.log(Number.NEGATIVE_INFINITY) ;
+    console.log(Number.isNaN(NaN)) ;//true
+    console.log(Number.isNaN("NaN")) ;//false
+
+    var n = 123456.8966 ;
+    console.log(n.toFixed(1)) ;//进行四舍五入,保留一位小数
+    console.log(n.toExponential()) ;//以指数形式返回数字,同样可以保留小数点几位
+    console.log(n.toPrecision(1)) ;//返回的数字的个数，返回结果可以是植树，可以是小数
+
+    var n = new Number(255) ;
+    console.log(n.toString(10)) ;//返回结果是十进制255
+    console.log(parseInt("11111",2)) ;//NAN?????
+
+    //测试布尔对象
+    var b = new Boolean() ;//对象，不是方法
+    console.log(b.valueOf()) ;//false,空值,对象都用valueOf
+    var b = new Boolean(NaN) ;//false
+    //布尔对象没有多大意义，没有提供方法,用Boolean()函数就行了
+
+
+
+
+    //-->
+</script>
+</body>
+</html>

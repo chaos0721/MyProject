@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/underscore.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/backbone-min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<ul id="aView">
+
+		</ul>
+		<script type="text/javascript">
+
+		var MyItem =Backbone.Model.extend({
+
+		});
+
+		var Mycollection = Backbone.Collection.extend({
+			url : 'http://json.html',
+			model : MyItem
+		});
+
+		var myItemView = Backbone.View.extend({
+			tagNmae : 'li',
+			render : function () {
+				this.$el.html(this.model.get('title'));
+				return this ;
+			}
+		});
+		var MycollectionView = Backbone.View.extend({
+			initialize : function(){
+				this.listenTo(this.collection,'reset',this.render) ;
+				this.views = [];
+			},
+			render : function(){
+				var that = this;
+				_.each(this.views,function(view){
+					view.remove();
+				});
+				//this.$el.empty();
+				this.collection.each(function(model){
+					var view = new myItemView({model:model});
+					that.views.push(view) ;
+					that.$el.append(view.render().$el);
+				});
+			}
+		});
+
+		var myCollection = new Mycollection();
+		var mycollectionview = new MycollectionView({
+			collection : myCollection,
+			el : '#aView'
+		});
+
+		Mycollection.fetch({reset:true}) ;
+		</script>
+	</body>
+</html>

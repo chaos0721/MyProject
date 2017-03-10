@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/underscore.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/backbone-min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<p id="p1">
+			<span>p1</span>
+			<span class="span1">p1</span>
+			<a href="#">p1a</a>
+		</p>
+		<p id="p2">p2</p>
+
+
+		<script type="text/javascript">
+			var ToDoItem = Backbone.Model.extend({})
+			
+			var toDoItem1 = new ToDoItem({
+				'title' : 'task' ,
+				'description' : 'description1'
+			});
+			var ToDoItemView = Backbone.View.extend({
+
+				events : {
+					//只要求第二个span添加事件
+					'click span.span1' : 'clickCallback' ,
+				},
+
+				initialize : function(){
+					this.listenTo(this.model,'change',this.render) ;
+				},
+
+				render : function(){
+					console.log('model is changed')
+				},
+
+				clickCallback : function(){
+					console.log('click')
+				},
+			})
+
+			var toDoItemView = new ToDoItemView({
+				model : toDoItem1,
+				el : '#p1'
+			}) ;
+
+			
+
+			var toDoItemView2 = new ToDoItemView({
+				model : toDoItem1,
+				el : '#p2'
+			})
+
+			toDoItemView.listenTo(toDoItem1,'change',function () {
+				console.log('111') ;
+			})
+
+		</script>	
+	</body>
+</html>

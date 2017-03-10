@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            text-decoration: none;
+            list-style: none;
+            padding:0;
+        }
+        #project>li {
+            display: inline-block;
+            width: 100px;
+            height: 20px;
+            background-color: #e6ff19;
+            text-align: center;
+            position: relative;
+        }
+        #project>li a {
+            width: 100px;
+            height: 20px;
+            display: inline-block;
+        }
+        li>ul {
+            display: none;
+            text-align: center;
+            position: absolute;
+        }
+        ul {
+            color: #000;
+        }
+        li>ul li {
+            width: 100px;
+            height: 20px;
+            background-color: #43dcff;
+        }
+        ul>li:hover ul {
+            display: block;
+        }
+        #project {
+            width: 400px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+<h1>用css做二级菜单</h1>
+<ul id="project">
+    <li><a href="">项目一</a>
+        <ul>
+            <li><a href="">栏目一</a>
+            </li>
+            <li><a href="">栏目一</a>
+            </li>
+            <li><a href="">栏目一</a>
+            </li>
+            <li><a href="">栏目一</a>
+            </li>
+        </ul>
+    </li><li><a href="">项目一</a>
+        <ul>
+            <li><a href="">栏目一</a>
+            </li>
+            <li><a href="">栏目一</a>
+            </li>
+            <li><a href="">栏目一</a>
+            </li>
+            <li><a href="">栏目一</a>
+            </li>
+        </ul>
+    </li><li><a href="">项目一</a>
+        <ul>
+            <li><a href="">栏目一</a>
+            </li>
+            <li><a href="">栏目一</a>
+            </li>
+            <li><a href="">栏目一</a>
+            </li>
+            <li><a href="">栏目一</a>
+            </li>
+        </ul>
+    </li><li><a href="">项目一</a>
+        <ul>
+            <li><a href="">栏目一</a>
+            </li>
+            <li><a href="">栏目一</a>
+            </li>
+            <li><a href="">栏目一</a>
+            </li>
+            <li><a href="">栏目一</a>
+            </li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>

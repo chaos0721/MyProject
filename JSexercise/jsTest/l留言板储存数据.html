@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>简单的留言板</h1>
+<form action="">
+    <textarea name="" id="demo" cols="60" rows="10"></textarea>
+</form>
+<input type="button" value="保存" onclick="saveData('demo')" />
+<input type="button" value="读取" onclick="loadData('p')" />
+<input type="button" value="移除数据" onclick="clearData('p')" />
+<hr />
+<p id="p"></p>
+<script type="text/javascript">
+    <!--
+        function saveData(id) {
+            var demo = document.getElementById(id).value;
+            var time = new Date().getTime() ;
+            localStorage.setItem(time,demo) ;
+            alert("以保存") ;
+            loadData("p");
+
+        }
+        function loadData(id) {
+            var p = document.getElementById(id) ;
+            var tab = "<table border='1' cellspacing='0' cellpadding='0'>" ;
+            for (var i = 0 ;i<localStorage.length;i++){
+                var d = new Date();
+                var key = localStorage.key(i);
+                d.setTime(key) ;
+                dateStr = d.toString();//toGMTString不好用
+                var info = localStorage.getItem(key);
+                tab += "<tr>"+"<td>"+"这是第"+i+"数据"+"</td>"+"<td>"+dateStr+"</td>"+"<td>"+info+"</td>"+"</tr>"
+            }
+            tab += "</table>" ;
+            p.innerHTML = tab ;
+        }
+        function clearData(id) {
+            localStorage.clear();
+            alert("数据已删除") ;
+            loadData(id);
+        }
+        function callBack(id) {
+
+        }
+    //-->
+</script>
+</body>
+</html>

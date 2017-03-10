@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/underscore.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/backbone-min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			var ToDoItem = Backbone.Model.extend({})
+			
+			var toDoItem1 = new ToDoItem({
+				'title' : 'task' ,
+				'description' : 'description1'
+			});
+			var toDoItem2 = new ToDoItem({
+				'title' : 'task' ,
+				'description' : 'description1'
+			});
+
+
+			var ToDoItemView = Backbone.View.extend({
+
+				tagName :'div',
+
+				className : 'todo_item' ,
+
+				events : {
+					//只要求第二个span添加事件
+					'click button' : 'clickCallback' ,
+				},
+
+				initialize : function(){
+					this.listenTo(this.model,'change',this.render) ;
+					this.listenTo(this.model,'destroy',this.remove)
+				},
+
+				render : function(){
+					var json = this.model.toJSON() ;
+					this.$el.html('<h3>'+json.title+'<h3>'+'<p>'+json.description+'</p>'+'<button type=button>删除</button>') ;
+					console.log(this == toDoItemView || this == toDoItemView2)
+					return this ;
+				},
+
+				clickCallback : function(){
+					//this.$el.html('')
+					//this.remove() ;
+					////移除model并触发事件
+					this.model.destroy();
+				},
+			})
+
+			var toDoItemView = new ToDoItemView({
+				model : toDoItem1
+			}) ;
+
+
+			var toDoItemView2 = new ToDoItemView({
+				model : toDoItem2
+			})
+
+			toDoItemView.render().$el.appendTo($('body'));
+			toDoItemView2.render().$el.appendTo($('body'));
+		</script>	
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    //join()
+    var arr = ['中国','美国','日本'];
+    alert(arr.join());  //默认情况用逗号连接
+    alert(arr.join('')) ; //用空的字符串连接
+    //push,pop,reverse,shift(删除返回第一个元素),sort(排序)等等
+    //sort()  默认情况先将能转换伟number类型的字符串和number类型放在一起比较（转为string类型比较，转换不了的作为一组比较）
+    var arr1 = [3,8,'23','34',123,9,560] ;
+    alert(arr1.sort()) ;
+    alert(arr1.sort(function (a,b) {
+        if(a*1>b*1){
+            return 1;
+        }else{
+            return -1;        }
+    }))
+</script>
+</body>
+</html>

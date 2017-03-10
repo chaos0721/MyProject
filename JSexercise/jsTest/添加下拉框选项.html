@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="添加选项" onclick="addOption()">
+<input type="button" value="添加一幅图片" onclick="fun()">
+<select>
+    <option value="">本科</option>
+    <option value="">大专</option>
+    <option value="">高中</option>
+    <option value="">初中</option>
+</select>
+<div id="d"></div>
+<script type="text/javascript">
+    <!--
+    function addOption() {
+//        //创建一个新的节点  第一种添加节点
+        var option = document.createElement("option") ;
+        option.value = "小学" ;
+        option.text = "小学" ;
+//        //拿到下拉框，加入小学
+       document.getElementsByTagName("select")[0].options.add(option) ;
+        //获得select对象
+        //第二种
+//        var select1 = document.getElementsByTagName("select")[0] ; //返回的是数组，所以要加0  重点啊
+//        select1.innerHTML = select1.innerHTML+"<option value='小学'>小学</option>" ;  //可惜IE不支持这种写法
+        //第三种,
+//        var option = document.createElement("option") ;
+//        option.value = "小学" ;
+//        option.text = "小学" ;
+//        var select = document.getElementsByTagName("select")[0] ;
+//        select.appendChild(option) ;
+    }
+    function fun() {
+        //拿到div对象
+        var d = document.getElementById("d") ;
+        //创建一个img标签
+        var img = document.createElement("img") ;
+        //指定属性
+        img.src = "a.png" ;
+        img.style.width = "200px" ;//这个用加px
+        img.height = "200" ;  //都是根据<img>不加px
+        //将图片添加到div标签中
+        d.appendChild(img) ;
+    }
+    //-->
+    </script>
+</body>
+</html>

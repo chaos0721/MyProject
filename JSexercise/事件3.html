@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="test1" id="btn1" />
+<input type="button" value="test2" id="btn2" />
+<input type="button" value="test3" id="btn3" />
+<input type="button" value="test4" id="btn4" />
+<script type="text/javascript">
+    <!--
+    //按写的顺序弹出-----S
+    var btn1 = document.getElementById("btn1") ;
+    btn1.addEventListener("click",function () {
+        alert("a")
+    },false) ;
+    var handler = function () {
+        alert("b")
+    };
+    btn1.addEventListener("click",handler,false) ;
+    btn1.addEventListener("click",function () {
+        alert("c")
+    },false);
+    //---------------------E
+
+    //removeEventListener--S
+    var btn2 = document.getElementById("btn2") ;
+    var count = 0 ;
+    var handler1 = function () {
+        alert(count) ;
+        count++;
+        if (count == 3){
+            alert("事件被取消了");
+            btn2.removeEventListener("click",handler1,false) ;
+        }
+    };
+    btn2.addEventListener("click",handler1,false) ;
+    //----------------------E
+
+    //不能通过匿名函数取消事件---S
+    var btn3 = document.getElementById("btn3") ;
+    btn3.addEventListener("click",function () {
+        alert(123) ;
+        btn3.removeEventListener("click",function () {
+            alert(123);
+        },false) ;
+    },false) ;
+    //-----------------------------E
+
+    //IE浏览器attachEvent，detachEvent移除事件,默认冒泡，两个参数-----------S
+    var btn4 =document.getElementById("btn4") ;
+    btn4.attachEvent("onclick",function () {
+       alert("abc")
+    });
+    //在IE8之前出现的是相反的顺序,先出现"Hellow IE" ；
+    var handler2 = function () {
+        alert("hello IE")
+    };
+    btn4.attachEvent("onclick",handler2) ;
+    //-----------------------------------------------------------------------E
+
+
+    /// /-->
+</script>
+</body>
+</html>

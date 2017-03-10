@@ -1,0 +1,53 @@
+body {
+	font-family: "microsoft yahei",sans-serif;
+}
+.progress {
+margin-bottom: 15px;
+}
+/*头像*/
+.wh64 {
+	width: 64px;
+	height: 64px;
+	border-radius: 50px;
+}
+textarea.form-control {
+	margin-bottom: 10px;
+}
+#foo {
+	text-align: center;
+}
+.page-header {
+	margin: 0;
+}
+.page-header h1 {
+	margin: 0;
+	font-size: 16px;
+}
+.user_search{
+    padding: 10px;
+    border: solid 1px #1c1e22;
+    border-top: none;
+}
+table.user_search tbody td{
+	padding: 15px 9px;
+}
+.taglist {
+	margin-top: 10px;
+}
+.taglist_alert {
+	margin-right: 10px;
+}
+
+.alert-info {
+	background: #646667;
+}
+@media (min-width: 768px) and (max-width: 992px) {
+	.deal {
+		    margin-right: -26px;
+	}
+}
+@media (max-width: 992px ) {
+	.addBtn {
+		margin: 10px 0px 0px -15px;
+	}
+}

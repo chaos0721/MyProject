@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    <!--
+    //如果不是循环语句，严格按顺序写
+        function c2() {
+             arr = [] ;
+            for (var i = 0 ; i<arguments.length ; i++){
+                arr[i] = arguments[i]*2 ;
+            }
+            return arr ;
+        }
+        c2(112,33,44,4343) ;
+        function addOne() {
+            var arr1 = [] ;
+            for (var i = 0;i<arguments.length;i++){
+                arr1[i] = arr[i]+1 ;
+            }
+            return arr1 ;
+        }
+        alert(addOne.apply(addOne,arr)) ;
+//        var arr1 = [] ;
+//        arr1 = c2(12,243,54)  ;
+//        for (var i = 0 ;i<arr1.length ; i++){
+//            arr1[i] = addOne(arr[i])
+//        }
+//        alert(arr1);
+//-----------------------------------------------------------------------------
+//        function c2(x,y,z) {
+//            arr = [] ;
+//            for (var i = 0 ; i<arguments.length ; i++){
+//                arr[i] = arguments[i]*2 ;
+//            }
+//            return arr ;
+//        }
+//        c2(12,243,54.212,2323,2323,112)  ;
+//        function addOne(a) {
+//            return a + 1 ;
+//        }
+//        for (var i = 0 ;i<arr.length ; i++){
+//            arr[i] = addOne(arr[i])
+//        }
+//        alert(arr);
+    //------------------------------------------------------------------------------
+//        function c2(x,y,z,callBack) {
+//            var arr = [] ;
+//            for (var i = 0;i<3;i++){
+//                arr[i] = callBack(arguments[i]*2) ;
+//            }
+//            return arr ;
+//        }
+//        function addOne(a) {
+//            return a + 1
+//        }
+//        alert(c2(32,43,7,addOne)) ;
+//        alert(c2(32,73,7,function(a){return a+1})) ;
+    //-->
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+<!--
+//闭包作用就是将函数内部与函数外部连接的桥梁，
+// 闭包就是能读取其他目标函数内部变量的函数,函数内部的函数（子函数）
+//闭包还能是局部变量的值保存，不会被系统回收
+function f1() {
+    var n = 1 ;
+    test = function () {
+        n+=1 ;
+    } ;
+    function f2() {
+        alert(n) ;
+    }
+    return f2 ;
+}
+var res = f1() ;//这个全局变量必须定义
+alert(res()) ;//如果f2没有return，结果1----undefined;
+test() ;
+alert(res()) ;//f2就是闭包函数
+//f1是f2的父函数，f2被赋予给了全局变量res，导致f2始终在内存中，f2依赖f1，f1中的n不会回收
+
+var setValue ,getValue ;
+(function () {
+    var n = 0 ;
+    getValue = function () {
+        return n ;
+    };
+    setValue = function (x) {
+        n = x ;
+    };
+
+})() ;
+alert(getValue()) ;
+setValue(567) ;
+alert(getValue()) ;
+//-->
+</script>
+</body>
+</html>

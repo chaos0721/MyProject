@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    <!--
+    function Person(){}
+    Person.prototype.name = "chao" ;
+    Person.prototype.height = 180 ;
+    var p = new Person() ;
+    console.log(p.constructor) ;//Person(){}
+    console.log(p.constructor.prototype) ;//Object {name: "chao"}//constructor是原型的属性
+    console.log(p.__proto__) ;//Object {name: "chao"}
+    console.log(Person.prototype);
+    console.log(p.__proto__.__proto__)//Object {}
+    console.log(p.prototype)//undefined
+    console.log(Object.keys(p.__proto__))//["name"]
+    alert(Person.prototype === p.__proto__) //true
+    //重新定义原型
+    Person.prototype = {
+        name : "you" ,
+        gender : "女"
+    };
+    console.log(p.constructor) ;//Person(){}
+    alert(p.name) ;//chao
+
+    console.log(p.constructor.prototype) ;//{name: "you", gender: "女"}//全覆盖了，之前的都没了
+    console.log(p.__proto__) ;//Object {name: "chao"}
+    console.log(Person.prototype);//Object {name: "you", gender: "女"}
+    console.log(p.__proto__.__proto__)//Object {}
+    console.log(p.prototype)//undefined
+    console.log(Object.keys(p.__proto__))//["name"]
+    alert(Person.prototype === p.__proto__)//false
+
+    var p2 = new Person() ;
+    alert(p2.name) ;//you
+    console.log(p2.constructor) ;//Object(){}
+    console.log(p2.constructor.prototype) ;//{}
+    console.log(p2.__proto__) ;//Object {name: "you", gender: "女"}
+    console.log(Person.prototype)//Object {name: "you", gender: "女"}
+    console.log(p2.__proto__.__proto__)//Object {}
+    console.log(p2.prototype)//undefined
+    console.log(Object.keys(p2.__proto__))//["name", "gender"]
+    alert(Person.prototype === p2.__proto__)//true
+
+    //改写constructor
+    Person.prototype.constructor = Person ;
+
+    console.log(p2.constructor) ;//Person(){}
+    alert(p2.name) ;//you
+    console.log(p2.constructor.prototype) ;//{name: "you", gender: "女"}
+    console.log(p2.__proto__) ;//Object {name: "you", gender: "女"}
+    console.log(Person.prototype)//Object {name: "you", gender: "女"}
+    console.log(p2.__proto__.__proto__)//Object {}
+    console.log(p2.prototype)//undefined
+    console.log(Object.keys(p2.__proto__))//["name", "gender", "constructor"]
+    alert(Person.prototype === p2.__proto__)//true
+
+    console.log(p.constructor) ;//Person(){}
+    alert(p.name) ;//chao
+    console.log(p.constructor.prototype) ;//{name: "you", gender: "女"}//constructor是原型的属性
+    console.log(p.__proto__) ;//Object {name: "chao"}
+    console.log(Person.prototype)//Object {name: "you", gender: "女"}
+    console.log(p.__proto__.__proto__)//Object {}
+    console.log(p.prototype)//undefined
+    console.log(Object.keys(p.__proto__))//["name"]
+    alert(Person.prototype === p.__proto__)//false
+
+
+//结论一：p.constructor.prototype === Person.prototype
+
+
+
+
+
+
+
+    //-->
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <style>
+        #cont {
+            position: relative;
+            height: 100px;
+        }
+        img {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            z-index: 1;
+        }
+        img:first-child,img:target {
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+<div id="cont">
+    <img id="img1" src="a.png" />
+    <img id="img2" src="b.png" />
+</div>
+<div>
+    <a href="#img1">第一张</a>
+    <a href="#img2">第二张</a>
+</div>
+</body>
+</html>

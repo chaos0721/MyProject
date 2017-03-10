@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li id="bj" value="beijing">北京<h1>海淀</h1>奥运</li>
+    <li id="sh" value="shanghai">
+        上海
+    </li>
+    <br>
+    <input type="button" value="li取值" onclick="getLi()">
+</ul>
+<script type="text/javascript">
+    function getLi() {
+        var bjs1 = document.getElementById("bj") ;
+        var childs = bjs1.childNodes ;
+        for(var i = 0; i<childs.length ; i++){
+            //alert(childs[i].nodeName+":"+childs[i].nodeValue+":"+childs[i].nodeType)
+            if (childs[i].nodeType == 1){
+                alert(childs[i].firstChild.nodeValue) ;
+            }else{
+                alert(childs[i].nodeValue) ;
+            }
+        }
+    }
+
+//    var b1 = bjs1.firstChild ;
+//    alert(b1.nodeValue) ;
+//    var b3 = bjs1.lastChild ;
+//    alert(b3.nodeValue) ;
+//    var b2 = b3.previousSibling ;
+//    alert(b2.firstChild.nodeValue) ;
+
+</script>
+</body>
+</html>

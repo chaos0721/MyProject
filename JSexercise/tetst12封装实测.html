@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="EventUtil.js"></script>
+</head>
+<body>
+<input type="button" value="test" id="btn" />
+<br />
+<a href="http://www.baidu.com" id="a">百度 </a>
+<div id="box1">
+    <input type="button" value="test1" id="btn1" />
+</div>
+<script type="text/javascript">
+    <!--
+        //获得事件对象----------------------------------------S
+        var btn = document.getElementById("btn") ;
+        EventUtil.addHandler(btn,"click",function (event) {
+           event = EventUtil.getEvent(event) ;
+           var target = EventUtil.getTarget(event) ;
+           alert(target.tagName)
+        });
+        //----------------------------------------------------E
+
+        //----------取消默认事件-------------------------------S
+        var a = document.getElementById("a") ;
+        a.onclick =function (event) {
+            event = EventUtil.getEvent(event) ;  //判断IE或者其他浏览器
+            EventUtil.preventDefault(event)
+        };
+        //------------------------------------------------------W
+
+        var box1 = document.getElementById("box1") ;
+        var btn1 = document.getElementById("btn1") ;
+        btn1.onclick =  function (event) {
+            alert("btn1 clicked");
+        };
+        box1.onclick = function (event) {
+            event = EventUtil.getEvent(event) ;
+            alert("div click");
+            EventUtil.cancelBubble(event) ;
+        };
+        document.body.onclick = function (event) {
+            alert("body clicked")
+        };
+
+    //-->
+</script>
+</body>
+</html>

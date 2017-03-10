@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="" onclick="">
+<input type="button" value="" onclick="">
+<h1 id="h1"><ins>你好</ins></h1>
+<input type="button" value="演示区别" onclick="fun2()">
+<script type="text/javascript">
+function fun2() {
+    var txt = document.getElementById("h1").innerHTML ;
+    alert(txt) ;
+    var txt1 = document.getElementById("h1").innerText;
+    alert(txt1) ;
+}
+</script>
+</body>
+</html>

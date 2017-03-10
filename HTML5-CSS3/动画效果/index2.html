@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	div {
+		width: 200px;
+		height: 100px;
+		background-color: #f60;
+	}
+	@-webkit-keyframes mycolor{
+		0%{
+			background-color: #f60;
+		}
+		10%{
+			background-color: green;
+		}
+		50%{
+			background-color: red;
+		}
+		100%{
+			background-color: black;
+		}
+	}
+	div:hover{
+		-webkit-animation-name:mycolor;
+		-webkit-animation-duration:5s;
+		-webkit-animation-timing-function:linear;
+		-webkit-animation-iteration-count:infinite;
+	}
+	</style>
+</head>
+<body>
+	<h1>Animation属性</h1>
+	<div></div>
+</body>
+</html>

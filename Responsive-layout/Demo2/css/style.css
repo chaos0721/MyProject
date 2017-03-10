@@ -1,0 +1,139 @@
+body {
+	font-family: "microsoft yahei",sans-serif;
+}
+h1,h2,h3,h4 {
+	font-weight: 800;
+}
+.navbar-default {
+	background-color: whitesmoke;
+	border: none;
+	-webkit-box-shadow: 0px 2px 8px rgba(50,50,50,0.3);
+}
+.navbar-default .navbar-brand {
+	font-size: 30px;
+    color: #40D2B1;
+    line-height: 35px;
+    height: 70px;
+}
+.navbar-nav>li>a{
+    font-size: 16px;
+    color: #666;
+    height: 70px;
+    line-height: 35px;
+}
+.navbar-default .navbar-toggle {
+    border-color: #ddd;
+    background: #576f6a;
+    margin-top: 18px;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #40d2b1;
+}
+/*home*/
+#home {
+	background: url("../img/home-bg.jpg");
+	background-size: cover;
+	color : #ffffff ;
+	margin-top : 70px;
+	text-align: center;
+	width: 100%;
+}
+.lvjing {
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.7);
+	padding: 70px 0;
+}
+#home img{
+	margin-top: 30px;
+	display: inline-block;
+}
+#bbs {
+	padding: 80px;
+	text-align: center;
+}
+#bbs img{
+	margin: 0 auto;
+}
+#bbs a {
+	text-decoration: none;
+	color: #000000;
+}
+#html5,#new_lesson {
+	background: #f8f8f8;
+	padding: 80px 0;
+}
+#html5 span,#lesson span {
+	display: inline-block;
+	width: 40px;
+	height:40px;
+	border-radius: 50%;
+	background-color: cadetblue;
+	text-align: center;
+	line-height: 40px;
+	margin-right: 10px;
+}
+#lesson, #app {
+	padding: 80px 0;
+}
+#new_lesson h3 {
+	margin-bottom: 40px;
+}
+#new_lesson {
+	text-align: center;
+}
+#new_lesson img {
+	margin: 20px auto;
+	
+}
+#new_lesson button {
+	width: 114px;
+}
+#app h2 {
+	margin-bottom: 40px;
+}
+#download {
+	margin-top:24px;
+}
+#download a {
+	background-color: cadetblue;
+	color: white;
+	font-weight: 500;
+}
+#download a:hover{
+	background-color: urlywood;
+}
+.addMar{
+	margin-bottom: 40px;
+}
+#contact {
+	background: url("../img/contact-bg.png");
+	background-size:cover;
+	color: #FFFFFF;
+}
+address>p {
+	line-height: 30px;
+}
+#contact .form-control {
+	border-radius: 0;
+    border: none;
+    height: 50px;
+    margin-bottom: 20px;
+}
+#contact textarea.form-control {
+	height: auto;
+}
+#contact input[type="submit"]{
+	background: #40D2B1;
+	color: white;
+	font-weight: 500;
+	height: 40px;
+	width: 200px;
+}
+#contact input[type="submit"]:hover{
+	background-color: gray;
+}
+#foo {
+	text-align: center;
+	padding :10px 0;
+}

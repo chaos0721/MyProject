@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        //    var i = 0 , j = 1 ;
+        //    if (i-- && j++){
+        //        document.write("真") ;
+        //    }else {
+        //        document.write("假") ;
+        //    }
+        //    alert(i) ;
+        //    alert(j) ;
+
+        //    var a = 0, b = 1;
+        //    if (a-- || b++){
+        //        document.write("真") ;
+        //    }else {
+        //        document.write("假") ;
+        //    }
+        //    alert(a) ;
+        //    alert(b) ;
+        //    document.write("<hr color='red' />")
+        //    document.write("<h1>这个也行啊</h1>")
+        function fun() {
+            d = document.getElementById("d") ;
+            d.innerHTML = "<h1>在这些</h1>"
+        }  //不加onload事件，代码段写在body标签末尾，否则会发生找不到p
+
+    </script>
+</head>
+<body onload="fun()">
+<p id="d">222</p>
+
+</body>
+</html>

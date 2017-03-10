@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	/*内部三个盒子*/
+	.box {
+		border: 1px black solid ;
+		width: 80px;
+		height: 40px;
+		float: left;
+	}
+	/*作比较的盒子*/
+	.container {
+		border: 2px black solid ;
+		width: 80px;
+		height: 40px;
+		/*clear: both ;*/
+		/*overflow: hidden;*/
+		background-color: red ;
+	}
+	.father {
+		font-size: 222px ;
+		color : red;
+	}
+
+	/*解决塌陷*/
+	.father1 {
+		width: 200px;
+		height: 200px;
+		background: red ;
+		/*三种方法*/
+		/*overflow: hidden;
+		padding-top : 10px;
+		border: 1px solid transparent ;*/
+	}
+	.son {
+		margin-top: 10px ;
+		width: 100px;
+		height: 100px;
+		background-color: blue ;
+	}
+	</style>
+</head>
+<body>
+	<!--盒子-->
+	<div style="width: 300px;border: 1px red solid;">
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="container">11</div>
+	</div>
+	<!--css继承性-->
+	<div class="father">
+		<div>1111</div>
+	</div>
+
+	<!--margin塌陷-->
+	<div class="father1">
+		<div class="son"></div>P
+		<div></div>
+	</div>
+
+
+
+	<script type="text/javascript">
+		for (var i = 100; i < 1000; i++) {
+			var str ;
+			//拿到字符串
+			str = String(i) ;
+			//字符串拆分为数组
+			var arr = str.split('') ;
+			//得到个十位的幂次方
+			var hunred = Math.pow(arr[0],3) ;
+			var ten = Math.pow(arr[1],3) ;
+			var one = Math.pow(arr[2],3) ;
+			//个十位相加与i做对比
+			var total = hunred + ten + one ;
+			if (total == i ) {
+				document.write(i+'</br>') ;
+			}
+		}
+
+		
+		</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    <!--
+    var person = {
+        name :"cj" ,
+        age :22 ,
+        addr : {
+            home :"home address" ,
+            office : "office address"
+        },
+        school : ["xieoxue","daxue"]//数组也会影响
+    };
+    var programmer = {
+        language : "js"
+    };
+    function extendDeeply(p,c) {
+        var c = c || {};
+        for (var i in p) {
+            if (typeof p[i] === "object") {
+                c[i] = (p[i].constructor === Array) ? [] : {};
+                extendDeeply(p[i], c[i]);
+            } else {
+                c[i] = p[i]
+            }
+        }
+        return c;
+    }
+    extendDeeply(person,programmer) ;
+    programmer.school[0] = "xxxx" ;
+    console.log(person.school[0]) ; //" xiaoxue" ,深拷贝达到赋予值不会改变另一个
+    //构造函数拷贝
+    function Parent() {
+        this.name = "abc" ;
+        this.addr = {home:"home"} ;
+    }
+    function Child() {
+        Parent.call(this) ;
+        this.language = "js"
+    }
+    var c = new Child() ;
+    var p = new Parent() ;//不会改变，通深度
+
+
+
+
+
+
+
+
+
+
+
+
+    //-->
+</script>
+</body>
+</html>

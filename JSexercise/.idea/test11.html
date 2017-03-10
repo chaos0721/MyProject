@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    <!--
+//    function a(param) {
+//        var b = function (param1) {
+//            return param1 + 10 ;
+//        }
+//        return b(param)
+//    }
+//    alert(a(5))
+
+    (function f() {
+        function setUp() {
+            alert("a")
+        }
+        function dowhat() {
+            alert("b")
+        }
+        setUp() ;
+        return dowhat ;
+    })()
+//    dowhat()//内部函数不管有没有var都不能单独调用
+
+    function f1() {
+        var a = 12;
+        return f2()
+    }
+    function f2() {
+        return a
+    }
+    alert(f1())//错误，a未定义，因为其实局部变量
+
+
+
+
+
+
+
+
+    //-->
+</script>
+</body>
+</html>
