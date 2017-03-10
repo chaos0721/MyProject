@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<div ng-app="myApp">
+			<div ng-controller="firstController">
+				<!--123,456,789-->
+				<p>{{123456789 | number}}</p>
+				<!--123,456.789-->
+				<p>{{123456.789 | number:3}}</p>
+				<!--$99,999,999.00-->
+				<p>{{99999999 | currency}}</p>
+				<!--$99,999,999.00-->
+				<p>{{99999999 | currency:'rmb'}}</p>
+				<!--Jan 2, 1970-->
+				<p>{{121312324 | date}}</p>
+				<!--Feb 16, 2017-->
+				<p>{{today | date}}</p>
+				<!--Feb 16, 2017 12:02:48 AM-->
+				<p>medium:{{today | date:'medium'}}</p>
+				<p>short:{{today | date:'short'}}</p>
+				<p>fullDate:{{today | date:'fullDate'}}</p>
+				<p>longDate:{{today | date:'longDate'}}</p>			
+				<p>mediumDate:{{today | date:'mediumDate'}}</p>
+				<p>shortDate:{{today | date:'shortDate'}}</p>
+				<p>mediumTime:{{today | date:'mediumTime'}}</p>
+				<p>shortTime:{{today | date:'shortTime'}}</p>
+				<p>longTime:{{today | date:'longTime'}}</p>
+				<p>经常用到</p>
+				<!--2017-->
+				<p>:{{today | date:'y'}}</p>	
+				<!--17-->
+				<p>:{{today | date:'yy'}}</p>
+				<!--2017-->
+				<p>:{{today | date:'yyyy'}}</p>
+				<!--2-->
+				<p>{{today | date:'M'}}</p>
+				<!--02-->
+				<p>{{today | date:'MM'}}</p>
+				<!--Feb-->
+				<p>{{today | date:'MMM'}}</p>
+				<!--February-->
+				<p>{{today | date:'MMMM'}}</p>
+				<!--16-->
+				<p>{{today | date:'d'}}</p>
+				<!--16-->
+				<p>{{today | date:'dd'}}</p>
+				<!--Thu-->
+				<p>{{today | date:'EEE'}}</p>
+				<!--Thursday-->
+				<p>{{today | date:'EEEE'}}</p>
+				
+				<!--17,分-->
+				<p>{{today | date:'m'}}</p>
+				<!--17-->
+				<p>{{today | date:'mm'}}</p>
+				
+				<!--17,秒-->
+				<p>{{today | date:'s'}}</p>
+				<!--17-->
+				<p>{{today | date:'ss'}}</p>
+				
+				<p>{{today | date : 'y-MM-d H:m:s '}}</p>
+				
+				<p>{{[1,2,3,4,5,6,7,8,9] | limitTo:5}}</p>
+				
+				<p>{{[1,2,3,4,5,6,7,8,9] | limitTo:-5}}</p>
+				
+				<p>{{data.message | lowercase}}</p>
+				<p>{{data.message | uppercase}}</p>
+				
+				<p>
+					{{data.city | filter : "shanghai"}}
+				</p>
+				<p>
+					<!--匹配不到，只能匹配value值-->
+					{{data.city | filter : "name"}}
+				</p>
+				
+				<p>
+					{{data.city | filter : checkName}}
+				</p>
+				
+				<p>
+					{{data.city | filter : {py:"g"} }}
+				</p>
+				
+				<p>
+					{{data.city | orderBy : "py" }}
+				</p>
+				<!--反序-->
+				<p>
+					{{data.city | orderBy : "-py" }}
+				</p>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			</div>
+		</div>
+		<script type="text/javascript" src="js/angular.js"></script>
+		<script type="text/javascript" src="js/index1.js"></script>
+	</body>
+</html>
